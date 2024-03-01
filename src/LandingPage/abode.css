@@ -31,9 +31,59 @@
     gap: 4px;
     align-items: center;
 }
+.sterling{
+    font-size: 48px;
+     font-weight: 300;
+     color: #D6AD60;
+}
+.sterling22{
+    font-size: 28px;
+    font-weight: 600;
+    margin-top: 0.2rem;
+    color: #D6AD60;
+}
+.lux{
+    font-size: 40px;
+    font-weight: 500;
+    padding-top: 7%;
+    color: #D6AD60;
+}
+@media (max-width: 1240px) {
+    .lux {
+        font-size: 20px;
+    }
+  }
+.ready{
+    padding-top: 6%;
+     padding-bottom: 6%;
+     font-size: 30px;
+     font-weight: 500;
+     color: #D6AD60
+}
+.livingss{
+    padding-top: 6%;
+     font-size: 31px;
+      font-weight: 500;
+      color: #D6AD60
+}
+.main_bord{
+    border: 2px solid #D6AD60;
+     padding-top: 10px;
+     padding-bottom: 10px;
+      padding-left: 5px;
+       padding-right: 5px;
+       width: 20vw;
+       text-align: center;
+}
+@media (max-width: 1240px) {
+    .main_bord {
+      display: none;
+    }
+  }
+  
 .third_part {
     background-color: #122620;
-    height: 945px;
+    height: 155vh;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -49,7 +99,7 @@
 
 .ninth_part {
     background-color: #122620;
-    height: 316px;
+    height: 53vh;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -64,8 +114,8 @@
     background-image: url('../Assets/background3.png');
     /* flex-direction: column; */
     align-items: center;
-    height: 541px;
-    gap: 284px;
+    height: 90vh;
+    gap: 19%;
     justify-content: center;
 }
 
@@ -186,6 +236,7 @@ font-weight: 500;
 .comn_hox {
     text-align: center;
     width: 782px;
+    margin-top: 3rem;
     border-radius: 8px;
     display: flex;
     flex-direction: column;
@@ -201,7 +252,7 @@ font-weight: 500;
     background-color: #12262099;
 }
 .sixth_part {
-    height: 650px;
+    height: 108vh;
     background-size: cover;
     display: flex;
     background-position: center;
@@ -211,7 +262,7 @@ font-weight: 500;
     flex-direction: column;
     align-items: center;
     /* gap: 90px; */
-    justify-content: center;
+    /* justify-content: center; */
 }
 .fourth_part{
     height: 650px;
@@ -252,7 +303,7 @@ font-weight: 500;
     color: #ffffff;
     font-size: 18px;
     font-weight: 500;
-    padding-top: 2rem;
+    /* padding-top: 2rem; */
     padding-bottom: 1.5rem;
     text-decoration: underline;
 }
@@ -320,7 +371,7 @@ font-weight: 500;
 
 .secondRow {
     display: flex;
-    gap: 80px;
+gap: 4.5vw;
 }
 
 .firstttt {
@@ -358,6 +409,39 @@ gap: 23px;
 display: flex;
 padding-top: 65%;
 }
+.frst_floor{
+    display: flex;
+    gap: 5px;
+    width: 24vw;
+}
+.scnd_floor{
+    display: flex;
+    width: 24vw;
+    gap: 5px;
+}
+.third_floor{
+    display: flex;
+    width: 24vw;
+    gap: 5px;
+}
+.comn_floor{
+    display: flex;
+    height: 38vh;
+}
+.floor_imagesss{
+    width: 100%;
+    height: 75%;
+}
+.gapagain2{
+    gap: 23px;
+    display: flex;
+    padding-top: 60%;
+}
+.gapagain3{
+    gap: 23px;
+    display: flex;
+    padding-top: 25.5%;
+}
 .immm1{   
     height: 395px;
     width: 574px;
@@ -377,6 +461,7 @@ justify-content: center;
     color: #122620;
     font-size: 18px;
     font-weight: 500;
+    cursor: pointer;
     height: 42px;
     justify-content: center;
     border-bottom-left-radius: 4px;
@@ -394,8 +479,7 @@ justify-content: center;
     justify-content: center !important;
     border-radius: 50% !important;
 }
-.react-3d-carousel .slider-container {
-}
+
 .slider-right>div{
     height: 28px !important;
     width: 28px !important;
@@ -409,6 +493,7 @@ justify-content: center;
     color: #D4AF37;
     font-size: 18px;
     font-weight: 500;
+    cursor: pointer;
     height: 42px;
     justify-content: center;
     border: 1px solid #D4AF37;
@@ -422,6 +507,8 @@ justify-content: center;
 .comm_bhk {
     display: flex;
     align-items: center;
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
 }
 
 .highlight {
@@ -454,9 +541,10 @@ justify-content: center;
 }
 
 .head_head {
-    gap: 24px;
+    gap: 1vw;
     display: flex;
     padding-bottom: 30px;
+    flex-wrap: wrap;
 }
 
 .frst_cmn {
@@ -468,7 +556,7 @@ justify-content: center;
 .gallery {
     font-size: 48px;
     padding-top: 3rem;
-    padding-bottom: 2rem;
+    padding-bottom: 1rem;
     font-weight: 500;
     color: #D4AF37;
 }
@@ -476,4 +564,19 @@ justify-content: center;
 .image_scroll {
     width: 852px;
     height: 469px
+}
+
+.useBtns {
+    display: flex;
+    position: absolute;
+    right: 32vw;
+    bottom: 12vh;
+}
+
+.useBtns > img {
+    cursor: pointer;
+}
+
+.lol {
+
 }
