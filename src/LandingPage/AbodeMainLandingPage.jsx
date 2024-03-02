@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import "./abode.css"
-import map from "../Assets/map.svg"
+import map2 from "../Assets/map2.png"
 import star from "../Assets/star.svg"
 // import { Carousel } from '3d-react-carousal';
 import Carousel from 'react-spring-3d-carousel';
@@ -136,8 +136,8 @@ const AbodeMainLandingPage = () => {
                                 <span className='first_heading'>+918790878787</span>
                             </div>
                         </div>
-                        <div style={{ display: 'flex' }}>
-                            <div style={{ width: '40%', paddingTop: '3.8%', paddingLeft: '5%' }}>
+                        <div className='okokok' >
+                            <div className='firstesttt_left'>
                             <div className='main_bord'>
                               <div className='sterlinggg' style={{fontFamily:"Cormorant Garamond"}}>
                                 STERLING
@@ -148,12 +148,12 @@ const AbodeMainLandingPage = () => {
                                 <div className='lux' style={{ fontFamily: "Lora" }}>Luxury Gated Apartments</div>
                                 <div className='livingss' style={{fontFamily: "Lora" }}>Living spaces in Sainikpuri, <br /> Hyderabad</div>
                                 <div className='ready' style={{ fontFamily: "Lora" }}>Ready to Move-In</div>
-                                <div className='download_broch'>Download Brochure</div>
+                               <div> <div className='download_broch'>Download Brochure</div> </div>
                             </div>
                             <div style={{ width: '65%', position: 'relative', top: '-6.6rem', zIndex: 1 }} >
-                                {count % 3 === 0  && <img src={t1} style={{ width: '60vw', height: '100vh' }} />}
-                                {count % 3 === 1  && <img src={t2} style={{ width: '60vw', height: '100vh' }} />}
-                                {count % 3 === 2  && <img src={t3} style={{ width: '60vw', height: '100vh' }} />}
+                                {count % 3 === 0  && <img src={t1} className='t1_imgg' />}
+                                {count % 3 === 1  && <img src={t2} className='t1_imgg' />}
+                                {count % 3 === 2  && <img src={t3} className='t1_imgg' />}
                             </div>
                             {count % 3 === 0  && <span className='imageText'>Lush Green Surroundings</span>}
                             {count % 3 === 1  && <span className='imageText'>Lush Green Surroundings</span>}
@@ -173,6 +173,7 @@ const AbodeMainLandingPage = () => {
                         <div className='learn'>learn more</div>
                     </div>
                     <div className='secondRow'>
+                        <div className='secondRow2'>
                         <div className='second_box'>
                             <div className='firstttt'>52k</div>
                             <div className='scnd'>Sq. ft. Completed</div>
@@ -181,6 +182,8 @@ const AbodeMainLandingPage = () => {
                             <div className='firstttt'>40+</div>
                             <div className='scnd'>Green Spaces</div>
                         </div>
+                        </div>
+                        <div className='secondRow2'>
                         <div className='second_box'>
                             <div className='firstttt'>20</div>
                             <div className='scnd'>Years of Experience</div>
@@ -188,6 +191,7 @@ const AbodeMainLandingPage = () => {
                         <div className='second_box'>
                             <div className='firstttt'>15</div>
                             <div className='scnd'>Awards & Recognition</div>
+                        </div>
                         </div>
                     </div>
                 </div>
@@ -374,27 +378,46 @@ const AbodeMainLandingPage = () => {
                     <div>
                     {!bhkk ? 
                         <div className='comn_floor'>
+                            {/* mediaaquery */}
+                            <div className='top_two'> 
                             <div className='frst_floor'>
+                                <div className='frst_frst'>
                             <div><img className='floor_imagesss' src={floor1}/></div>
                             <div><img className='floor_imagesss' src={floor2}/></div>
                             </div>
+                            <div className='numberBold2'>1176 sq.ft.</div>
+                            </div>
                             <div className='scnd_floor'>
+                                <div className='frst_frst'>
                             <div><img className='floor_imagesss' src={floor3}/></div>
                             <div><img className='floor_imagesss' src={floor4}/></div>
+                            </div>
+                            <div className='numberBold2'>1226 sq.ft.</div>
+
+                            </div>
                             </div>
                             <div className='third_floor'>
+                                <div className='frst_frst'>
                             <div><img className='floor_imagesss' src={floor3}/></div>
                             <div><img className='floor_imagesss' src={floor4}/></div>
                             </div>
+                            <div className='numberBold2'>1176 sq.ft.</div>                           
+                            </div>
                         </div>:
-                        <div className='comn_floor'>
+                        <div className='comn_floor2'>
                         <div className='frst_floor'>
+                        <div className='frst_frst'>
                         <div><img className='floor_imagesss' src={floor5}/></div>
                         <div><img className='floor_imagesss' src={floor6}/></div>
+                         </div>
+                        <div className='numberBold2'>1545 sq.ft.</div>
                         </div>
                         <div className='scnd_floor'>
+                        <div className='frst_frst'>
                         <div><img className='floor_imagesss' src={floor7}/></div>
                         <div><img className='floor_imagesss' src={floor8}/></div>
+                        </div>
+                            <div className='numberBold2'>1697 sq.ft.</div> 
                         </div>
                     </div>
                         }
@@ -407,7 +430,7 @@ const AbodeMainLandingPage = () => {
                     <div className='amen_head' style={{ marginTop: "35px", marginBottom: "18px" }}>Connectivity</div>
                     <div className='Modern_spaced'>Convenient Location</div>
                     <div className='loc_div'>
-                        <div><img style={{ height: "60vh", width: '35vw' }} src={map} alt='' /></div>
+                        <div><img className='map_img'  src={map2} alt='' /></div>
                         <div className='lol'>
                             <div className='head_head'>
                                 <div onClick={() => { setActiveTab("NearBy"); }} className={`${activeTab === "NearBy" ? 'underhighlight' : 'highlight'}`}>Near By</div>
@@ -417,6 +440,7 @@ const AbodeMainLandingPage = () => {
                             </div>
                             {activeTab === "NearBy" ? (
                                 <div className='frst_cmn'>
+                                    <div>
                                     <div style={{ gap: "16px", display: "flex" }}>
                                         <div><img style={{ height: "20px", width: "20px" }} alt='' src={star} /></div>
                                         <div>
@@ -431,6 +455,8 @@ const AbodeMainLandingPage = () => {
                                             <div className='numberBold'>600m</div>
                                         </div>
                                     </div>
+                                    </div>
+                                    <div>
                                     <div style={{ gap: "16px", display: "flex" }}>
                                         <div><img style={{ height: "20px", width: "20px" }} alt='' src={star} /></div>
                                         <div>
@@ -445,9 +471,11 @@ const AbodeMainLandingPage = () => {
                                             <div className='numberBold'>1,2km</div>
                                         </div>
                                     </div>
+                                    </div>
                                 </div>
                             ) : activeTab === "Education" ? (
                                 <div className='frst_cmn'>
+                                    <div>
                                     <div style={{ gap: "16px", display: "flex" }}>
                                         <div><img style={{ height: "20px", width: "20px" }} alt='' src={star} /></div>
                                         <div>
@@ -469,6 +497,8 @@ const AbodeMainLandingPage = () => {
                                             <div className='numberBold'>1.8 km</div>
                                         </div>
                                     </div>
+                                    </div>
+                                    <div>
                                     <div style={{ gap: "16px", display: "flex" }}>
                                         <div><img style={{ height: "20px", width: "20px" }} alt='' src={star} /></div>
                                         <div>
@@ -483,9 +513,11 @@ const AbodeMainLandingPage = () => {
                                             <div className='numberBold'>7.8 Km</div>
                                         </div>
                                     </div>
+                                    </div>
                                 </div>
                             ) : activeTab === "Hospitals" ? (
                                 <div className='frst_cmn'>
+                                    <div>
                                     <div style={{ gap: "16px", display: "flex" }}>
                                         <div><img style={{ height: "20px", width: "20px" }} alt='' src={star} /></div>
                                         <div>
@@ -500,6 +532,8 @@ const AbodeMainLandingPage = () => {
                                             <div className='numberBold'>4 km</div>
                                         </div>
                                     </div>
+                                    </div>
+                                    <div>
                                     <div style={{ gap: "16px", display: "flex" }}>
                                         <div><img style={{ height: "20px", width: "20px" }} alt='' src={star} /></div>
                                         <div>
@@ -514,10 +548,12 @@ const AbodeMainLandingPage = () => {
                                             <div className='numberBold'>4.5 Km</div>
                                         </div>
                                     </div>
+                                    </div>
 
                                 </div>
                             ) : activeTab === "Malls" ? (
                                 <div className='frst_cmn'>
+                                    <div>
                                     <div style={{ gap: "16px", display: "flex" }}>
                                         <div><img style={{ height: "20px", width: "20px" }} alt='' src={star} /></div>
                                         <div>
@@ -531,6 +567,7 @@ const AbodeMainLandingPage = () => {
                                             <div className='overview'>Anutex Shopping Mall LLP</div>
                                             <div className='numberBold'>2.7 km</div>
                                         </div>
+                                    </div>
                                     </div>
                                     <div style={{ gap: "16px", display: "flex" }}>
                                         <div><img style={{ height: "20px", width: "20px" }} alt='' src={star} /></div>
@@ -579,7 +616,7 @@ const AbodeMainLandingPage = () => {
                         </div>
                     </div>
                     {/* right part........ */}
-                    <div>
+                    <div className='formmmmsssssrr'>
                         <div className='formm'>
                             <div className='enquire'>Enquire Now</div>
                             <div><input className='formRow' placeholder='Name' /></div>
