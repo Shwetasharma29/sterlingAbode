@@ -104,7 +104,7 @@ const AbodeMainLandingPage = () => {
           </div> 
                                 <div className='lux' style={{fontFamily: "Lora" }}>Luxury Gated Apartments</div>
                                 <div className='livingss' style={{  fontFamily: "Lora" }}>Living spaces in Sainikpuri, <br /> Hyderabad</div>
-                                <div className='ready' style={{ fontFamily: "Lora" }}>Ready to Move-In</div>
+                                <div className='readdy' style={{ fontFamily: "Lora" }}>Ready to Move-In</div>
                                 <div className='download_broch'>Download Brochure</div>
                             </div>
                             <div style={{ width: '65%' }} >
@@ -149,7 +149,7 @@ const AbodeMainLandingPage = () => {
                 <div className='third_part'>
                     <div className='amen_head' style={{ marginTop: "50px", marginBottom: "18px" }}>Amenities</div>
                     <div className='Modern_spaced'>Modern Spaced Designed for You</div>
-                    <div style={{ marginBottom: "191px" }}>
+                    <div className='ssssss'>
                         <div class="grid-container">
                             <div class="grid-item" style={{ borderRight: "1px solid #D4AF37", borderBottom: "1px solid #D4AF37" }}>
                                 <div><img src={img1} /></div>
