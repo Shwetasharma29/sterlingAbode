@@ -42,6 +42,8 @@ import floor5 from '../Assets/floor4.svg'
 import floor6 from '../Assets/floor4.svg'
 import floor7 from '../Assets/floor4.svg'
 import floor8 from '../Assets/floor4.svg'
+import { Offcanvas } from 'react-bootstrap';
+// import { Offcanvas } from 'react-bootstrap/Offcanvas';
 // import floor5 from '../Assets/floor5.png'
 
 const AbodeMainLandingPage = () => {
@@ -94,6 +96,8 @@ const AbodeMainLandingPage = () => {
         children[0].childNodes[1].src = right_arr
         children[0].childNodes[1].id = "blahblah1"
     }
+const [show,setShow] = useState(false);
+const handleClose = () => setShow(false);
 
     useEffect(() => {
         getChildern()
@@ -137,7 +141,9 @@ const AbodeMainLandingPage = () => {
                                 </span>
                                 <span className='first_heading'>+918790878787</span>
                             </div>
-                            <div className='vectimm'>
+                            <div className='vectimm' 
+                            // onClick={()=>{setShow(true);}}
+                            >
                                 <img src={Vector}/>
                             </div>
                             </div>
@@ -161,9 +167,9 @@ const AbodeMainLandingPage = () => {
                                 {count % 3 === 1  && <img src={t2} className='t1_imgg' />}
                                 {count % 3 === 2  && <img src={t3} className='t1_imgg' />}
                             </div>
-                            {count % 3 === 0  && <span className='imageText'>Lush Green Surroundings</span>}
-                            {count % 3 === 1  && <span className='imageText'>Lush Green Surroundings</span>}
-                            {count % 3 === 2  && <span className='imageText'>Lush Green Surroundings</span>}
+                            {count % 3 === 0  && <span className='imageText'  style={{fontFamily:"Lora"}}>Lush Green Surroundings</span>}
+                            {count % 3 === 1  && <span className='imageText' style={{fontFamily:"Lora"}}>Lush Green Surroundings</span>}
+                            {count % 3 === 2  && <span className='imageText' style={{fontFamily:"Lora"}}>Lush Green Surroundings</span>}
                             <div className="useBtns">
                                 <img src={left_arr} onClick={handlePrev} style={{marginRight: '1rem', width: '2.3rem'}}/>
                                 <img src={right_arr} onClick={handleNext} style={{width: '2.3rem'}}/>
@@ -651,6 +657,12 @@ const AbodeMainLandingPage = () => {
                     <div className='seccccc' style={{ marginTop: "16px", marginBottom: "16px" }}>Copyright © 2021 Sterling Abode</div>
                 </div>
             </div>
+            <Offcanvas show={show} onHide={handleClose} placement='start'>
+        <Offcanvas.Body>
+          Some text as placeholder. In real life you can have the elements you
+          have chosen. Like, text, images, lists, etc.
+        </Offcanvas.Body>
+      </Offcanvas>
         </div>
     )
 }

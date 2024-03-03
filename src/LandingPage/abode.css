@@ -73,6 +73,11 @@
         height: 111vh;
     }
   }
+  @media (max-width: 380px) {
+    .first_headdd {
+        height: 106vh;
+    }
+  }
 .okokok{
     display: flex;
 }
@@ -331,7 +336,7 @@
 }
 @media (max-width: 400px) {
     .third_part {
-        height: 180vh;
+        height: 175vh;
     }
 }
 
@@ -384,6 +389,11 @@
         height: 139vh;
     }
   }
+  @media (max-width: 400px) {
+    .seventh_part {
+        height: 126vh;
+    }
+  }
 .ninth_part {
     background-color: #122620;
     height: 53vh;
@@ -408,6 +418,11 @@
 @media (max-width: 810px) {
     .eight_part  {
         flex-direction: column;
+    }
+  }
+  @media (max-width: 400px) {
+    .eight_part  {
+        height: 78vh;
     }
   }
   @media (max-width: 810px) {
@@ -680,7 +695,7 @@ font-weight: 500;
 }
 @media (max-width: 400px) {
     .fourth_part {
-        height: 109vh;
+        height: 96vh;
     }
 }
 .background-div {
@@ -702,6 +717,11 @@ font-weight: 500;
     }
 }
 @media (max-width: 400px) {
+    .background-div {
+        height: 136vh;
+    }
+}
+@media (max-width: 380px) {
     .background-div {
         height: 136vh;
     }
@@ -1458,6 +1478,24 @@ justify-content: center;
        right: 62vw;
     }
 }
+@media (max-width: 420px) {
+    .useBtns{
+       bottom: 42vh;
+       right: 62vw;
+    }
+}
+@media (max-width: 390px) {
+    .useBtns{
+       bottom: 41vh;
+       right: 62vw;
+    }
+}
+@media (max-width: 370px) {
+    .useBtns{
+       bottom: 43vh;
+       right: 62vw;
+    }
+}
 .lol {
 
 }
@@ -1724,6 +1762,7 @@ justify-content: center;
     background-color: #12262099;
     font-size: 20px;
     font-weight: 500;
+    font-family: Lora;
     line-height: 24px;
     text-align: left;
     color: #D6AD60;
@@ -1768,6 +1807,11 @@ justify-content: center;
 @media (max-width: 400px) {
     .imageText{
        top: 33vh;
+    }
+}
+@media (max-width: 390px) {
+    .imageText{
+       top: 39vh;
     }
 }
 @media (max-width: 400px) {
