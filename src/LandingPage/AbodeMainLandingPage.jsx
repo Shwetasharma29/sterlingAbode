@@ -119,7 +119,7 @@ const AbodeMainLandingPage = () => {
                     <div className='first_headdd'>
                         {/* navbar */}
                         <div className='top_top'>
-                            <div><img src={logoo} alt='logo' /></div>
+                            <div className='frst_logoo'><img src={logoo} alt='logo' /></div>
                             <div className='for_gap'>
                                 <span className='first_heading'>OVERVIEW</span>
                                 <span className='first_heading'>AMENITIES</span>
@@ -325,10 +325,10 @@ const AbodeMainLandingPage = () => {
                             <div>
                                 <div>
                                     <div className='third_frst'>Kitchen</div>
-                                    <div className='gapppppguys'>
+                                    {/* <div className='gapppppguys'>
                                         <span><img style={{ height: "20px", width: "20px" }} alt='' src={star} /></span>
                                         <span className='walls'>Walls- Tiles up-to 2’ above counter & acrylic emulsion paint in balance area</span>
-                                    </div>
+                                    </div> */}
                                     <div className='gapppppguys'>
                                         <span><img style={{ height: "20px", width: "20px" }} alt='' src={star} /></span>
                                         <span className='walls'>Floor - Anti-skid Tiles</span>
@@ -636,7 +636,7 @@ const AbodeMainLandingPage = () => {
                 <div className='ninth_part'>
                     <div><img style={{ height: "100px", width: "152px", marginTop: "12px", marginBottom: "16px" }} src={logoo} alt='' /></div>
                     <div className='seccccc'>A Premium Gated Community of Luxury Apartments</div>
-                    <div style={{ display: "flex", gap: "21px", marginTop: "8px", height: "40px", alignItems: "center" }}>
+                    <div style={{ display: "flex", gap: "9px", marginTop: "8px", height: "40px", alignItems: "center" }}>
                         <span className='seccccc'>Home</span>
                         <span className='seccccc'>Overview</span>
                         <span className='seccccc'>Amenities</span>
