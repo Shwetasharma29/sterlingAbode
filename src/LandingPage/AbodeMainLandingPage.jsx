@@ -7,6 +7,7 @@ import Carousel from 'react-spring-3d-carousel';
 import logoo from "../Assets/logoo.svg"
 import left_grey from "../Assets/left_grey.svg"
 import right_arr from "../Assets/right_arr.svg"
+import Vector from "../Assets/Vector.svg"
 import left_arr from "../Assets/left_arr.svg"
 import right_grey from "../Assets/right_grey.svg"
 import mainImage from "../Assets/mainImage.svg"
@@ -127,6 +128,7 @@ const AbodeMainLandingPage = () => {
                                 <span className='first_heading'>LOCATION</span>
                                 <span className='first_heading'>CONTACT</span>
                             </div>
+                            <div className='iconss_mmm'>
                             <div className='for_gaaap'>
                                 <span>
                                     <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" viewBox="0 0 48 48">
@@ -134,6 +136,10 @@ const AbodeMainLandingPage = () => {
                                     </svg>
                                 </span>
                                 <span className='first_heading'>+918790878787</span>
+                            </div>
+                            <div className='vectimm'>
+                                <img src={Vector}/>
+                            </div>
                             </div>
                         </div>
                         <div className='okokok' >
@@ -150,7 +156,7 @@ const AbodeMainLandingPage = () => {
                                 <div className='ready' style={{ fontFamily: "Lora" }}>Ready to Move-In</div>
                                <div> <div className='download_broch'>Download Brochure</div> </div>
                             </div>
-                            <div style={{ width: '65%', position: 'relative', top: '-6.6rem', zIndex: 1 }} >
+                            <div className='image_sabse_main' style={{ width: '65%', position: 'relative', zIndex: 1 }} >
                                 {count % 3 === 0  && <img src={t1} className='t1_imgg' />}
                                 {count % 3 === 1  && <img src={t2} className='t1_imgg' />}
                                 {count % 3 === 2  && <img src={t3} className='t1_imgg' />}
@@ -354,7 +360,7 @@ const AbodeMainLandingPage = () => {
                     {/* <div> */}
                     <Carousel slides={slides} goToSlide={1} showNavigation={true} enableSwipe={true}/>
                     {/* </div> */}
-                    <span style={{ textAlign: "-webkit-center" }}>
+                    <span style={{ textAlign: "-webkit-center" }} className='enlargee'>
                         <div className='learn'>Click to enlarge</div>
                         <div className='download_broch'>Download Brochure</div>
                     </span>
@@ -630,7 +636,7 @@ const AbodeMainLandingPage = () => {
                 <div className='ninth_part'>
                     <div><img style={{ height: "100px", width: "152px", marginTop: "12px", marginBottom: "16px" }} src={logoo} alt='' /></div>
                     <div className='seccccc'>A Premium Gated Community of Luxury Apartments</div>
-                    <div style={{ display: "flex", gap: "32px", marginTop: "8px", height: "40px", alignItems: "center" }}>
+                    <div style={{ display: "flex", gap: "21px", marginTop: "8px", height: "40px", alignItems: "center" }}>
                         <span className='seccccc'>Home</span>
                         <span className='seccccc'>Overview</span>
                         <span className='seccccc'>Amenities</span>
