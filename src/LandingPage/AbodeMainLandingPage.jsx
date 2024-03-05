@@ -126,10 +126,10 @@ const handleClose = () => setShow(false);
   }, [index]);
     useEffect(() => {
         const interval = setInterval(() => {
-            setCount(prevCount => (prevCount + 1) % 3); // Increment count modulo 3
-        }, 4000); // Change image every 3 seconds
+            setCount(prevCount => (prevCount + 1) % 3); 
+        }, 12000); 
 
-        return () => clearInterval(interval); // Cleanup function to clear the interval on component unmount
+        return () => clearInterval(interval); 
     }, []);
     return (
         <div>
@@ -186,9 +186,9 @@ const handleClose = () => setShow(false);
                                 {count % 3 === 2  && <img src={t3} className='t1_imgg' />}
                                 </div>
                             </div>
-                            {count % 3 === 0  && <span className='imageText'  style={{fontFamily:"Lora"}}>Lush Green Surroundings</span>}
-                            {count % 3 === 1  && <span className='imageText' style={{fontFamily:"Lora"}}>Lush Green Surroundings</span>}
-                            {count % 3 === 2  && <span className='imageText' style={{fontFamily:"Lora"}}>Lush Green Surroundings</span>}
+                            {count % 3 === 0  && <span className='imageText'  style={{fontFamily:"Lora"}}>12600 sq.ft. Club House</span>}
+                            {count % 3 === 1  && <span className='imageText' style={{fontFamily:"Lora"}}>World Class Amenities</span>}
+                            {count % 3 === 2  && <span className='imageText' style={{fontFamily:"Lora"}}>Modern 2&3 BHK Apartments</span>}
                             <div className="useBtns">
                                 <img src={left_arr} onClick={handlePrev} style={{marginRight: '1rem', width: '2.3rem'}}/>
                                 <img src={right_arr} onClick={handleNext} style={{width: '2.3rem'}}/>

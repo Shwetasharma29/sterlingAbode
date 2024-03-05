@@ -302,7 +302,7 @@
   }
 .third_part {
     background-color: #122620;
-    height: 135vh;
+    height: 142vh;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -704,6 +704,11 @@ font-weight: 500;
 .image_sabse_main .image-slider {
     display: flex;
     transition: transform 0.5s ease; /* Smooth transition effect */
+}
+@media (max-width: 810px) {
+    .image_sabse_main .image-slider {
+        width: 100vw;
+    }
 }
 .background-div {
     height: 546px;
