@@ -90,7 +90,7 @@
   }
 
 .t1_imgg{
-    width: 60vw;
+    width: 59vw;
      height: 100vh; 
 }
 
@@ -423,7 +423,7 @@ color: #ffffff;
     background-color: #D4AF37;
     /* width: 19.8vw; */
     height: 48px;
-    margin-top: 2rem;
+    margin-top: 1rem;
     margin-bottom: 1rem;
     font-size: 16px;
     font-weight: 500;
@@ -699,7 +699,7 @@ text-align: center;
     width: 23vw;
     padding: 30px 32px 30px 30px;
     background: white;
-    height: 311px;
+    height: 390px;
     display: flex;
     gap: 18px;
     flex-direction: column;
@@ -743,7 +743,7 @@ text-align: center;
 .submit_btn {
     background-color: #D4AF37;
     /* width: 19.8vw; */
-    height: 48px;
+    height: 51px;
     font-size: 16px;
     font-weight: 500;
     display: flex;
@@ -755,7 +755,7 @@ text-align: center;
 .contact {
     width: 33vw;
     gap: 24px;
-    height: 91px;
+    height: 105px;
     opacity: 80%;
     display: flex;
     flex-direction: column;
@@ -775,7 +775,7 @@ text-align: center;
 .contact_scnd {
     width: 33vw;
     gap: 24px;
-    height: 202px;
+    height: 236px;
     opacity: 80%;
     display: flex;
     flex-direction: column;
