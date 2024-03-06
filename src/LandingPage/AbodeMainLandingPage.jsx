@@ -1,14 +1,17 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import "./abode.css"
 import map2 from "../Assets/map2.png"
 import star from "../Assets/star.svg"
 // import { Carousel } from '3d-react-carousal';
 import Carousel from 'react-spring-3d-carousel';
 import logoo from "../Assets/logoo.svg"
+import newLogo from "../Assets/newLogo.png"
 import left_grey from "../Assets/left_grey.svg"
+import tick from "../Assets/tick.png"
 import right_arr from "../Assets/right_arr.svg"
 import Vector from "../Assets/Vector.svg"
 import left_arr from "../Assets/left_arr.svg"
+import Frame from "../Assets/Frame.png"
 import right_grey from "../Assets/right_grey.svg"
 import mainImage from "../Assets/mainImage.jpeg"
 import mainImage2 from "../Assets/mainImage2.jpeg"
@@ -42,9 +45,8 @@ import floor5 from '../Assets/floor4.svg'
 import floor6 from '../Assets/floor4.svg'
 import floor7 from '../Assets/floor4.svg'
 import floor8 from '../Assets/floor4.svg'
-import { Offcanvas } from 'react-bootstrap';
-// import { Offcanvas } from 'react-bootstrap/Offcanvas';
-// import floor5 from '../Assets/floor5.png'
+import  Offcanvas  from 'react-bootstrap/Offcanvas';
+import { Modal } from 'react-bootstrap';
 
 const AbodeMainLandingPage = () => {
     const [activeTab, setActiveTab] = useState("NearBy")
@@ -54,41 +56,22 @@ const AbodeMainLandingPage = () => {
     const slides = [
         {
             key: 1,
-            content: <img 
-            // style={{
-            //     width: "852px", height: "469px"
-            // }}
+            content: <img           
              src={mainImage} alt="1" />
         },
         {
             key: 2,
             content: <img
-            //  style={{
-            //     width: "852px", height: "469px"
-            // }} 
             src={mainImage2} alt="2" />
         },
         {
             key: 3,
             content: <img
-            //  style={{
-            //     width: "852px", height: "469px"
-            // }} 
             src={mainImage3} alt="5" />
         },
         
     ];
-    // const slides = [
-    //     <img style={{
-    //         width: "852px", height: "469px"
-    //     }} src={mainImage} alt="1" />,
-    //     <img style={{
-    //         width: "852px", height: "469px"
-    //     }} src={mainImage2} alt="2" />,
-    //     <img style={{
-    //         width: "852px", height: "469px"
-    //     }} src={mainImage3} alt="5" />];
-
+  
     const getChildern = () => {
         const children = document.getElementsByClassName("css-1qzevvg")
         children[0].childNodes[0].src = left_arr
@@ -98,6 +81,13 @@ const AbodeMainLandingPage = () => {
     }
 const [show,setShow] = useState(false);
 const handleClose = () => setShow(false);
+const [name, setName] = useState('');
+const [phone, setPhone] = useState('');
+const [email, setEmail] = useState('');
+const [showModall,setShowModal] = useState(false);
+const [showModall2,setShowModal2] = useState(false);
+const handleCloseModal = () => setShowModal(false);
+const handleCloseModal2 = () => setShowModal2(false);
 
     useEffect(() => {
         getChildern()
@@ -116,7 +106,40 @@ const handleClose = () => setShow(false);
     }
     const [index, setIndex] = useState(0);
 
-
+    const handleDownload = async () => {
+        if (name && phone && email) {
+            try {
+                const response = await fetch("https://idesign-quotation.s3.ap-south-1.amazonaws.com/NO_COMPANYNAME/Sterling%20Abode%20Brochure.pdf"); // Adjust path to your PDF file
+                const blob = await response.blob();
+    
+                // Create a URL for the blob
+                const url = window.URL.createObjectURL(new Blob([blob]));
+    
+                // Create a temporary link element
+                const link = document.createElement('a');
+                link.href = url;
+                link.setAttribute('download', 'brochure.pdf');
+                document.body.appendChild(link);
+    
+                // Trigger the download
+                link.click();
+    
+                // Cleanup
+                document.body.removeChild(link);
+                window.URL.revokeObjectURL(url);
+    
+                setShowModal(false);
+                setShowModal2(true);
+            } catch (error) {
+                console.error('Error downloading PDF:', error);
+                alert('An error occurred while downloading the PDF.');
+            }
+        } else {
+            alert('Please fill all fields before downloading.');
+        }
+    };
+    
+    
   useEffect(() => {
     const timer = setTimeout(() => {
       setIndex(index + 1);
@@ -124,6 +147,34 @@ const handleClose = () => setShow(false);
 
     return () => clearTimeout(timer);
   }, [index]);
+  const overviewRef = useRef(null);
+  const amenitiesRef = useRef(null);
+  const galleryRef = useRef(null);
+  const floorPlanRef = useRef(null);
+    const locationRef = useRef(null);
+    const contactRef = useRef(null);
+  const scrollToOverview = () => {
+    overviewRef.current.scrollIntoView({ behavior: 'smooth' });
+};
+
+const scrollToAmenities = () => {
+    amenitiesRef.current.scrollIntoView({ behavior: 'smooth' });
+};
+
+const scrollToGallery = () => {
+    galleryRef.current.scrollIntoView({ behavior: 'smooth' });
+};
+const scrollToFloorPlan = () => {
+    floorPlanRef.current.scrollIntoView({ behavior: 'smooth' });
+};
+
+const scrollToLocation = () => {
+    locationRef.current.scrollIntoView({ behavior: 'smooth' });
+};
+
+const scrollToContact = () => {
+    contactRef.current.scrollIntoView({ behavior: 'smooth' });
+};
     useEffect(() => {
         const interval = setInterval(() => {
             setCount(prevCount => (prevCount + 1) % 3); 
@@ -141,12 +192,12 @@ const handleClose = () => setShow(false);
                         <div className='top_top'>
                             <div className='frst_logoo'><img src={logoo} alt='logo' /></div>
                             <div className='for_gap'>
-                                <span className='first_heading'>OVERVIEW</span>
-                                <span className='first_heading'>AMENITIES</span>
-                                <span className='first_heading'>GALLERY</span>
-                                <span className='first_heading'>FLOOR PLAN</span>
-                                <span className='first_heading'>LOCATION</span>
-                                <span className='first_heading'>CONTACT</span>
+                                <span className='first_heading'  onClick={scrollToOverview}>OVERVIEW</span>
+                                <span className='first_heading' onClick={scrollToAmenities}>AMENITIES</span>
+                                <span className='first_heading'  onClick={scrollToGallery}>GALLERY</span>
+                                <span className='first_heading'  onClick={scrollToFloorPlan}>FLOOR PLAN</span>
+                                <span className='first_heading' onClick={scrollToLocation}>LOCATION</span>
+                                <span className='first_heading' onClick={scrollToContact}>CONTACT</span>
                             </div>
                             <div className='iconss_mmm'>
                             <div className='for_gaaap'>
@@ -157,14 +208,14 @@ const handleClose = () => setShow(false);
                                 </span> 
                                 <span className='first_heading'>+918790878787</span>
                             </div>
-                            <div className='vectimm' 
-                            // onClick={()=>{setShow(true);}}
-                            >
-                                <img src={Vector}/>
-                            </div>
+                                <div className='vectimm' 
+                                onClick={()=>{setShow(true);}}  
+                                >
+                                    <img src={Vector}/>
+                                </div>
                             </div>
                         </div>
-                        <div className='okokok' >
+                        <div ref={overviewRef} className='okokok' >
                             <div className='firstesttt_left'>
                             <div className='main_bord'>
                               <div className='sterlinggg' style={{fontFamily:"Cormorant Garamond"}}>
@@ -176,9 +227,9 @@ const handleClose = () => setShow(false);
                                 <div className='lux' style={{ fontFamily: "Lora" }}>Luxury Gated Apartments</div>
                                 <div className='livingss' style={{fontFamily: "Lora" }}>Living spaces in Sainikpuri, <br /> Hyderabad</div>
                                 <div className='ready' style={{ fontFamily: "Lora" }}>Ready to Move-In</div>
-                               <div> <div className='download_broch'>Download Brochure</div> </div>
+                               <div> <div className='download_broch'  onClick={()=>{setShowModal(true);}}>Download Brochure</div> </div>
                             </div>
-                            <div className='image_sabse_main' style={{ width: '65%', position: 'relative', zIndex: 1 }} >
+                            <div className='image_sabse_main' style={{ width: '60%', position: 'relative', zIndex: 1 }} >
                             <div className='image-slider'>
             
                                 {count % 3 === 0  && <img src={t1} className='t1_imgg' />}
@@ -227,7 +278,7 @@ const handleClose = () => setShow(false);
                     </div>
                 </div>
                 {/* 3rd part */}
-                <div className='third_part'>
+                <div  ref={amenitiesRef} className='third_part'>
                     <div className='amen_head' style={{ marginTop: "50px", marginBottom: "18px" }}>Amenities</div>
                     <div className='Modern_spaced'>Modern Spaced Designed for You</div>
                     <div className='ssssss'>
@@ -282,7 +333,7 @@ const handleClose = () => setShow(false);
                             </div>
                         </div>
                     </div>
-                    <div className='download_broch'>Download Brochure</div>
+                    <div className='download_broch'  onClick={()=>{setShowModal(true);}}>Download Brochure</div>
                 </div>
                 {/* 4th part */}
                 <div className='fourth_part'>
@@ -380,7 +431,7 @@ const handleClose = () => setShow(false);
                         </div>}
                 </div>
                 {/* 5th part */}
-                <div style={{ backgroundColor: "#122620", textAlign: "center", display: 'flex', alignItems: 'center',  flexDirection: 'column' }}>
+                <div  ref={galleryRef} style={{ backgroundColor: "#122620", textAlign: "center", display: 'flex', alignItems: 'center',  flexDirection: 'column' }}>
                     <div className='gallery'>Gallery</div>
                     {/* <div> */}
                     <Carousel 
@@ -391,12 +442,12 @@ const handleClose = () => setShow(false);
                     {/* </div> */}
                     <span style={{ textAlign: "-webkit-center" }} className='enlargee'>
                         <div className='learn'>Click to enlarge</div>
-                        <div className='download_broch'>Download Brochure</div>
+                        <div className='download_broch'  onClick={()=>{setShowModal(true);}}>Download Brochure</div>
                     </span>
                     <div style={{ color: "#122620", height: "50px" }}></div>
                 </div>
                 {/* 6th part */}
-                <div className='sixth_part'>
+                <div ref={floorPlanRef} className='sixth_part'>
                     <div className='comn_hox'>
                         <div className='overview' style={{ paddingTop: "5px" }}>Floor Plan</div>
                         <div className='yellow_head'>Discover Your Perfect Space</div>
@@ -458,10 +509,10 @@ const handleClose = () => setShow(false);
                         }
                     </div>
                     <div className='learn'>Click to enlarge</div>
-                    <div className='download_broch'>Download Brochure</div>
+                    <div className='download_broch'  onClick={()=>{setShowModal(true);}}>Download Brochure</div>
                 </div>
                 {/* 7th part */}
-                <div className='seventh_part'>
+                <div ref={locationRef} className='seventh_part'>
                     <div className='amen_head' style={{ marginTop: "35px", marginBottom: "18px" }}>Connectivity</div>
                     <div className='Modern_spaced'>Convenient Location</div>
                     <div className='loc_div'>
@@ -619,7 +670,7 @@ const handleClose = () => setShow(false);
                     </div>
                 </div>
                 {/* 8th part */}
-                <div className='eight_part'>
+                <div ref={contactRef} className='eight_part'>
                     {/* left part......... */}
                     <div className='left_head'>
                         <div className='contact'>
@@ -680,14 +731,56 @@ const handleClose = () => setShow(false);
                     <div className='seccccc' style={{ marginTop: "16px", marginBottom: "16px" }}>Copyright © 2021 Sterling Abode</div>
                 </div>
             </div>
-            <Offcanvas show={show} onHide={handleClose} placement='start'>
+            <Offcanvas show={show} onHide={handleClose} placement='start' >
         <Offcanvas.Body>
-          Some text as placeholder. In real life you can have the elements you
-          have chosen. Like, text, images, lists, etc.
+         <div>
+         <div style={{display:"flex",justifyContent:"center",marginBottom:"2rem"}}><img src={newLogo} alt='logo' /></div>
+         <div>
+            <div className='sidebar_topic' style={{cursor:"pointer"}} onClick={()=>{scrollToOverview(); handleClose();}}>Overview</div>
+            <div className='sidebar_topic' style={{cursor:"pointer"}} onClick={()=>{scrollToAmenities(); handleClose();}}>Amenities</div>
+            <div className='sidebar_topic' style={{cursor:"pointer"}} onClick={()=>{scrollToGallery(); handleClose();}}>Gallery</div>
+            <div className='sidebar_topic' style={{cursor:"pointer"}} onClick={()=>{scrollToFloorPlan(); handleClose();}}>Floor Plan</div>
+            <div className='sidebar_topic' style={{cursor:"pointer"}} onClick={()=>{scrollToLocation(); handleClose();}}>Location</div>
+            <div className='sidebar_topic' style={{cursor:"pointer"}} onClick={()=>{scrollToContact(); handleClose();}}>Contact</div>
+         </div>
+         </div>
         </Offcanvas.Body>
       </Offcanvas>
+      <Modal show={showModall} dialogClassName='newclasssesss' onHide={handleCloseModal}  aria-labelledby="contained-modal-title-vcenter" centered >
+        <Modal.Body style={{padding:"32px",height:"361px"}}>
+            <div className='modal_border'>
+                <div className='cross_icon' onClick={()=>{setShowModal(false);}}><img src={Frame}/></div>
+            <div>
+                <div className='brochhh' style={{fontFamily:"lora"}}  onClick={()=>{setShowModal(true);}}>Download Brochure</div>
+                <div style={{display: "flex",
+                     flexDirection: "column",
+                     justifyContent: "center",
+                     alignItems: "center"}}>
+            <div><input className='formRow' placeholder='Name' value={name} onChange={(e) => setName(e.target.value)}/></div>
+            <div><input className='formRow' placeholder='Phone'  value={phone} onChange={(e) => setPhone(e.target.value)}/></div>
+            <div><input className='formRow' placeholder='Email' value={email} onChange={(e) => setEmail(e.target.value)} /></div>
+            </div>
+            <div className='submit_btn' onClick={handleDownload}>Submit</div>
+            </div>
+            </div>
+            </Modal.Body>
+      </Modal>
+
+      {/* successfullll modal */}
+      <Modal show={showModall2} dialogClassName='newclasssesss2' onHide={handleCloseModal2}  aria-labelledby="contained-modal-title-vcenter" centered >
+        <Modal.Body style={{padding:"32px",height:"325px"}}>
+            {/* <div className='modal_border'> */}
+           <div className='comn'>
+                <div className='cross_icon2' onClick={()=>{setShowModal2(false);}}><img src={Frame}/></div>
+          <div><img src={tick}/></div>
+          <div className='down'>Brochure Download Successful!</div>
+          <div className='thnkyou'>Thank you! You can also find the brochure in your inbox</div>
+            </div>
+            {/* </div> */}
+            </Modal.Body>
+      </Modal>
         </div>
     )
 }
 
-export default AbodeMainLandingPage
+export default AbodeMainLandingPage 
