@@ -38,6 +38,8 @@ import t1 from '../Assets/triangle1.png'
 import t2 from '../Assets/triangle2.png'
 import t3 from '../Assets/triangle3.png'
 import floor1 from '../Assets/floor1.svg'
+import newFloor1 from '../Assets/newFloor1.png'
+import newFloor2 from '../Assets/newFloor2.png'
 import floor2 from '../Assets/floor2.svg'
 import floor3 from '../Assets/floor3.svg'
 import floor4 from '../Assets/floor4.svg'
@@ -54,7 +56,7 @@ const AbodeMainLandingPage = () => {
     const [bhkk, setBhkk] = useState()
 
     const imageUris = [mainImage, mainImage2, mainImage3]
-    const [bhkUris, setBhkUris] = useState([floor1, floor2, floor3, floor4, floor3, floor4])
+    const [bhkUris, setBhkUris] = useState([newFloor1, newFloor2, floor3, floor4, floor3, floor4])
 
     const slides = [
         {
@@ -276,12 +278,12 @@ const AbodeMainLandingPage = () => {
                         <div className='top_top'>
                             <div className='frst_logoo'><img src={logoo} alt='logo' /></div>
                             <div className='for_gap'>
-                                <span className='first_heading' style={{cursor:"pointer"}} onClick={scrollToOverview}>OVERVIEW</span>
-                                <span className='first_heading' style={{cursor:"pointer"}} onClick={scrollToAmenities}>AMENITIES</span>
-                                <span className='first_heading'  style={{cursor:"pointer"}}  onClick={scrollToGallery}>GALLERY</span>
-                                <span className='first_heading' style={{cursor:"pointer"}}  onClick={scrollToFloorPlan}>FLOOR PLAN</span>
-                                <span className='first_heading' style={{cursor:"pointer"}}  onClick={scrollToLocation}>LOCATION</span>
-                                <span className='first_heading' style={{cursor:"pointer"}}  onClick={scrollToContact}>CONTACT</span>
+                                <span className='first_heading' style={{ cursor: "pointer" }} onClick={scrollToOverview}>OVERVIEW</span>
+                                <span className='first_heading' style={{ cursor: "pointer" }} onClick={scrollToAmenities}>AMENITIES</span>
+                                <span className='first_heading' style={{ cursor: "pointer" }} onClick={scrollToGallery}>GALLERY</span>
+                                <span className='first_heading' style={{ cursor: "pointer" }} onClick={scrollToFloorPlan}>FLOOR PLAN</span>
+                                <span className='first_heading' style={{ cursor: "pointer" }} onClick={scrollToLocation}>LOCATION</span>
+                                <span className='first_heading' style={{ cursor: "pointer" }} onClick={scrollToContact}>CONTACT</span>
                             </div>
                             <div className='iconss_mmm'>
                                 <div className='for_gaaap'>
@@ -548,20 +550,32 @@ const AbodeMainLandingPage = () => {
                             <div className='hbhk' onClick={() => {
                                 setBhkk(true)
                                 setBhkUris([floor5, floor6, floor7, floor8])
+                                if (document.getElementById("idgoeshere")) {
+                                    document.getElementById("idgoeshere").scrollLeft = 0
+                                }
+                                if (document.getElementById("idgoesheree")) {
+                                    document.getElementById("idgoesheree").scrollLeft = 0
+                                }
                             }}>3 BHK</div>
                         </div> :
                         <div className='comm_bhk'>
                             <div className='hbhk' onClick={() => {
                                 setBhkk(false)
                                 setBhkUris([floor1, floor2, floor3, floor4, floor3, floor4])
+                                if (document.getElementById("idgoeshere")) {
+                                    document.getElementById("idgoeshere").scrollLeft = 0
+                                }
+                                if (document.getElementById("idgoesheree")) {
+                                    document.getElementById("idgoesheree").scrollLeft = 0
+                                }
                             }}>2 BHK</div>
                             <div className='bbhk'>3 BHK</div>
                         </div>}
                     <div className='holeefuk'>
                         {!bhkk ?
-                            <div className='comn_floor'>
+                            <div className='comn_floor' id="idgoeshere">
                                 {/* mediaaquery */}
-                                <div className='top_two'>
+                                {/* <div className='top_two'>
                                     <div className='frst_floor'>
                                         <div className='frst_frst'>
                                             <div><img className='floor_imagesss' src={floor1} /></div>
@@ -584,24 +598,102 @@ const AbodeMainLandingPage = () => {
                                         <div><img className='floor_imagesss' src={floor4} /></div>
                                     </div>
                                     <div className='numberBold2'>1176 sq.ft.</div>
+                                </div> */}
+                                <img src={left_arr} className='leftArrow' onClick={() => {
+                                    if (document.getElementById("idgoeshere")) {
+                                        document.getElementById("idgoeshere").scrollLeft = document.getElementById("idgoeshere").scrollLeft - 450
+                                    }
+                                }} />
+
+                                <div className="curr_image">
+                                    <img src={newFloor1} alt="" />
+                                    <span>1176 sq.ft.</span>
                                 </div>
+                                <div className="curr_image">
+                                    <img src={newFloor2} alt="" />
+                                    <span>1207 sq.ft.</span>
+                                </div>
+                                <div className="curr_image">
+                                    <img src={newFloor1} alt="" />
+                                    <span>1225 sq.ft.</span>
+                                </div>
+                                <div className="curr_image">
+                                    <img src={floor1} alt="" />
+                                    <span>1225 sq.ft.</span>
+                                </div>
+                                <div className="curr_image">
+                                    <img src={floor1} alt="" />
+                                    <span>1225 sq.ft.</span>
+                                </div>
+                                <div className="curr_image">
+                                    <img src={floor1} alt="" />
+                                    <span>1225 sq.ft.</span>
+                                </div>
+                                <div className="curr_image">
+                                    <img src={floor1} alt="" />
+                                    <span>1225 sq.ft.</span>
+                                </div>
+                                <img src={right_arr} style={{ width: '2.3rem' }} className='rightArrow' onClick={() => {
+                                    if (document.getElementById("idgoeshere")) {
+                                        document.getElementById("idgoeshere").scrollLeft = document.getElementById("idgoeshere").scrollLeft + 450
+                                    }
+                                }} />
                             </div> :
-                            <div className='comn_floor2'>
-                                <div className='frst_floor'>
-                                    <div className='frst_frst'>
-                                        <div><img className='floor_imagesss' src={floor5} /></div>
-                                        <div><img className='floor_imagesss' src={floor6} /></div>
-                                    </div>
-                                    <div className='numberBold2'>1545 sq.ft.</div>
+                            <div className='comn_floor2' id="idgoesheree">
+                            {/* <div className='frst_floor'>
+                                <div className='frst_frst'>
+                                    <div><img className='floor_imagesss' src={floor5} /></div>
+                                    <div><img className='floor_imagesss' src={floor6} /></div>
                                 </div>
-                                <div className='scnd_floor'>
-                                    <div className='frst_frst'>
-                                        <div><img className='floor_imagesss' src={floor7} /></div>
-                                        <div><img className='floor_imagesss' src={floor8} /></div>
-                                    </div>
-                                    <div className='numberBold2'>1697 sq.ft.</div>
-                                </div>
+                                <div className='numberBold2'>1545 sq.ft.</div>
                             </div>
+                            <div className='scnd_floor'>
+                                <div className='frst_frst'>
+                                    <div><img className='floor_imagesss' src={floor7} /></div>
+                                    <div><img className='floor_imagesss' src={floor8} /></div>
+                                </div>
+                                <div className='numberBold2'>1697 sq.ft.</div>
+                            </div> */}
+                            <img src={left_arr} style={{ marginRight: '1rem', width: '2.3rem' }} className='leftArrow' onClick={() => {
+                                if(document.getElementById("idgoesheree")) {
+                                    document.getElementById("idgoesheree").scrollLeft = document.getElementById("idgoesheree").scrollLeft - 450
+                                }
+                            }} />
+
+                            <div className="curr_image">
+                                <img src={floor2} alt="" />
+                                <span>La La Land</span>
+                            </div>
+                            <div className="curr_image">
+                                <img src={floor2} alt="" />
+                                <span>Legends Die</span>
+                            </div>
+                            <div className="curr_image">
+                                <img src={floor2} alt="" />
+                                <span>LMFAO</span>
+                            </div>
+                            <div className="curr_image">
+                                <img src={floor2} alt="" />
+                                <span>Volume 2</span>
+                            </div>
+                            <div className="curr_image">
+                                <img src={floor2} alt="" />
+                                <span>La La Land</span>
+                            </div>
+                            <div className="curr_image">
+                                <img src={floor2} alt="" />
+                                <span>La La Land</span>
+                            </div>
+                            <div className="curr_image">
+                                <img src={floor2} alt="" />
+                                <span>La La Land</span>
+                            </div>
+                            <img src={right_arr} style={{ width: '2.3rem' }} className='rightArrow' onClick={() => {
+                                if(document.getElementById("idgoesheree")) {
+                                    document.getElementById("idgoesheree").scrollLeft = document.getElementById("idgoesheree").scrollLeft + 450
+                                }
+                            }} />
+                        </div>
                         }
                     </div>
                     <div className='learn' onClick={() => {
@@ -621,10 +713,22 @@ const AbodeMainLandingPage = () => {
                         <div><img className='map_img' src={map2} alt='' /></div>
                         <div className='lol'>
                             <div className='head_head'>
-                                <div onClick={() => { setActiveTab("NearBy"); }} className={`${activeTab === "NearBy" ? 'underhighlight' : 'highlight'}`}>Near By</div>
-                                <div onClick={() => { setActiveTab("Education"); }} className={`${activeTab === "Education" ? 'underhighlight' : 'highlight'}`}>Education</div>
-                                <div onClick={() => { setActiveTab("Hospitals"); }} className={`${activeTab === "Hospitals" ? 'underhighlight' : 'highlight'}`}>Hospitals </div>
-                                <div onClick={() => { setActiveTab("Malls"); }} className={`${activeTab === "Malls" ? 'underhighlight' : 'highlight'}`}>Malls</div>
+                                <div onClick={() => { setActiveTab("NearBy"); }} className={`${activeTab === "NearBy" ? 'underhighlight' : 'highlight'}`}>
+                                  <div>Near By</div> 
+                                  {activeTab === "NearBy" && <div style={{width:"65px",height:"1.5px",backgroundColor:"#d6ad60"}}></div>}
+                                </div>
+                                <div onClick={() => { setActiveTab("Education"); }} className={`${activeTab === "Education" ? 'underhighlight' : 'highlight'}`}>
+                                    <div>Education</div>
+                                    {activeTab === "Education" && <div style={{width:"82px",height:"1.5px",backgroundColor:"#d6ad60"}}></div>}
+                                </div>
+                                <div onClick={() => { setActiveTab("Hospitals"); }} className={`${activeTab === "Hospitals" ? 'underhighlight' : 'highlight'}`}>
+                                    <div>Hospitals</div>
+                                    {activeTab === "Hospitals" && <div style={{width:"74px",height:"1.5px",backgroundColor:"#d6ad60"}}></div>}    
+                                </div>
+                                <div onClick={() => { setActiveTab("Malls"); }} className={`${activeTab === "Malls" ? 'underhighlight' : 'highlight'}`}>
+                                    <div>Malls</div>
+                                    {activeTab === "Malls" && <div style={{width:"46px",height:"1.5px",backgroundColor:"#d6ad60"}}></div>}        
+                                </div>
                             </div>
                             {activeTab === "NearBy" ? (
                                 <div className='frst_cmn'>
