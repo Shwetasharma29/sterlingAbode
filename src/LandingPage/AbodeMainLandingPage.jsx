@@ -5,6 +5,7 @@ import star from "../Assets/star.svg"
 // import { Carousel } from '3d-react-carousal';
 import Carousel from 'react-spring-3d-carousel';
 import logoo from "../Assets/logoo.svg"
+import logo1440 from "../Assets/logo1440.svg"
 import newLogo from "../Assets/newLogo.png"
 import left_grey from "../Assets/left_grey.svg"
 import tick from "../Assets/tick.png"
@@ -40,6 +41,24 @@ import t3 from '../Assets/triangle3.png'
 import floor1 from '../Assets/floor1.svg'
 import newFloor1 from '../Assets/newFloor1.png'
 import newFloor2 from '../Assets/newFloor2.png'
+import bhk1 from '../Assets/bhk1.jpg'
+import bhk2 from '../Assets/bhk2.jpg'
+import bhk3 from '../Assets/bhk3.jpg'
+import bhk31 from '../Assets/bhk31.jpg'
+import bhk32 from '../Assets/bhk32.jpg'
+import bhk33 from '../Assets/bhk33.jpg'
+import bhk34 from '../Assets/bhk34.jpg'
+import bhk36 from '../Assets/bhk36.jpg'
+import bhk37 from '../Assets/bhk37.jpg'
+import bhk38 from '../Assets/bhk38.jpg'
+import bhk39 from '../Assets/bhk39.jpg'
+import bhk35 from '../Assets/bhk35.jpg'
+import bhk4 from '../Assets/bhk4.jpg'
+import bhk5 from '../Assets/bhk5.jpg'
+import bhk6 from '../Assets/bhk6.jpg'
+import bhk7 from '../Assets/bhk7.jpg'
+import bhk8 from '../Assets/bhk8.jpg'
+import bhk9 from '../Assets/bhk9.jpg'
 import floor2 from '../Assets/floor2.svg'
 import floor3 from '../Assets/floor3.svg'
 import floor4 from '../Assets/floor4.svg'
@@ -56,7 +75,7 @@ const AbodeMainLandingPage = () => {
     const [bhkk, setBhkk] = useState()
 
     const imageUris = [mainImage, mainImage2, mainImage3]
-    const [bhkUris, setBhkUris] = useState([newFloor1, newFloor2, floor3, floor4, floor3, floor4])
+    const [bhkUris, setBhkUris] = useState([newFloor1, newFloor2,bhk2,bhk1,bhk3,bhk4,bhk5,bhk6,bhk7,bhk8,bhk9])
 
     const slides = [
         {
@@ -276,7 +295,10 @@ const AbodeMainLandingPage = () => {
                     <div className='first_headdd' >
                         {/* navbar */}
                         <div className='top_top'>
-                            <div className='frst_logoo'><img src={logoo} alt='logo' /></div>
+                            <div className='frst_logoo'>
+                                <img src={logoo} alt='logo' className='fullscreen'/>
+                                <img src={logo1440} className='mid1440'/>
+                            </div>
                             <div className='for_gap'>
                                 <span className='first_heading' style={{ cursor: "pointer" }} onClick={scrollToOverview}>OVERVIEW</span>
                                 <span className='first_heading' style={{ cursor: "pointer" }} onClick={scrollToAmenities}>AMENITIES</span>
@@ -292,7 +314,7 @@ const AbodeMainLandingPage = () => {
                                             <path fill="#fff" d="M4.868,43.303l2.694-9.835C5.9,30.59,5.026,27.324,5.027,23.979C5.032,13.514,13.548,5,24.014,5c5.079,0.002,9.845,1.979,13.43,5.566c3.584,3.588,5.558,8.356,5.556,13.428c-0.004,10.465-8.522,18.98-18.986,18.98c-0.001,0,0,0,0,0h-0.008c-3.177-0.001-6.3-0.798-9.073-2.311L4.868,43.303z"></path><path fill="#fff" d="M4.868,43.803c-0.132,0-0.26-0.052-0.355-0.148c-0.125-0.127-0.174-0.312-0.127-0.483l2.639-9.636c-1.636-2.906-2.499-6.206-2.497-9.556C4.532,13.238,13.273,4.5,24.014,4.5c5.21,0.002,10.105,2.031,13.784,5.713c3.679,3.683,5.704,8.577,5.702,13.781c-0.004,10.741-8.746,19.48-19.486,19.48c-3.189-0.001-6.344-0.788-9.144-2.277l-9.875,2.589C4.953,43.798,4.911,43.803,4.868,43.803z"></path><path fill="#cfd8dc" d="M24.014,5c5.079,0.002,9.845,1.979,13.43,5.566c3.584,3.588,5.558,8.356,5.556,13.428c-0.004,10.465-8.522,18.98-18.986,18.98h-0.008c-3.177-0.001-6.3-0.798-9.073-2.311L4.868,43.303l2.694-9.835C5.9,30.59,5.026,27.324,5.027,23.979C5.032,13.514,13.548,5,24.014,5 M24.014,42.974C24.014,42.974,24.014,42.974,24.014,42.974C24.014,42.974,24.014,42.974,24.014,42.974 M24.014,42.974C24.014,42.974,24.014,42.974,24.014,42.974C24.014,42.974,24.014,42.974,24.014,42.974 M24.014,4C24.014,4,24.014,4,24.014,4C12.998,4,4.032,12.962,4.027,23.979c-0.001,3.367,0.849,6.685,2.461,9.622l-2.585,9.439c-0.094,0.345,0.002,0.713,0.254,0.967c0.19,0.192,0.447,0.297,0.711,0.297c0.085,0,0.17-0.011,0.254-0.033l9.687-2.54c2.828,1.468,5.998,2.243,9.197,2.244c11.024,0,19.99-8.963,19.995-19.98c0.002-5.339-2.075-10.359-5.848-14.135C34.378,6.083,29.357,4.002,24.014,4L24.014,4z"></path><path fill="#40c351" d="M35.176,12.832c-2.98-2.982-6.941-4.625-11.157-4.626c-8.704,0-15.783,7.076-15.787,15.774c-0.001,2.981,0.833,5.883,2.413,8.396l0.376,0.597l-1.595,5.821l5.973-1.566l0.577,0.342c2.422,1.438,5.2,2.198,8.032,2.199h0.006c8.698,0,15.777-7.077,15.78-15.776C39.795,19.778,38.156,15.814,35.176,12.832z"></path><path fill="#fff" fill-rule="evenodd" d="M19.268,16.045c-0.355-0.79-0.729-0.806-1.068-0.82c-0.277-0.012-0.593-0.011-0.909-0.011c-0.316,0-0.83,0.119-1.265,0.594c-0.435,0.475-1.661,1.622-1.661,3.956c0,2.334,1.7,4.59,1.937,4.906c0.237,0.316,3.282,5.259,8.104,7.161c4.007,1.58,4.823,1.266,5.693,1.187c0.87-0.079,2.807-1.147,3.202-2.255c0.395-1.108,0.395-2.057,0.277-2.255c-0.119-0.198-0.435-0.316-0.909-0.554s-2.807-1.385-3.242-1.543c-0.435-0.158-0.751-0.237-1.068,0.238c-0.316,0.474-1.225,1.543-1.502,1.859c-0.277,0.317-0.554,0.357-1.028,0.119c-0.474-0.238-2.002-0.738-3.815-2.354c-1.41-1.257-2.362-2.81-2.639-3.285c-0.277-0.474-0.03-0.731,0.208-0.968c0.213-0.213,0.474-0.554,0.712-0.831c0.237-0.277,0.316-0.475,0.474-0.791c0.158-0.317,0.079-0.594-0.04-0.831C20.612,19.329,19.69,16.983,19.268,16.045z" clip-rule="evenodd"></path>
                                         </svg>
                                     </span>
-                                    <span className='first_heading'>+918790878787</span>
+                                    <span className='first_heading'>+919100008979</span>
                                 </div>
                                 <div className='vectimm'
                                     onClick={() => { setShow(true); }}
@@ -337,28 +359,28 @@ const AbodeMainLandingPage = () => {
                 <div className="background-div">
                     <div className='frst_box'>
                         <div className='overview'>Overview</div>
-                        <div className='yellow_head'>Building Dreams with Sri Vathsa</div>
+                        <div className='yellow_head'>Building Dreams with Sterling Abode</div>
                         {/* <div className='learn'>learn more</div> */}
                     </div>
                     <div className='secondRow'>
                         <div className='secondRow2'>
                             <div className='second_box'>
-                                <div className='firstttt'>52k</div>
-                                <div className='scnd'>Sq. ft. Completed</div>
+                                <div className='firstttt'>12k+</div>
+                                <div className='scnd'>Sq. ft. Club House</div>
                             </div>
                             <div className='second_box'>
-                                <div className='firstttt'>40+</div>
-                                <div className='scnd'>Green Spaces</div>
+                                <div className='firstttt'>30+</div>
+                                <div className='scnd'>Amenities</div>
                             </div>
                         </div>
                         <div className='secondRow2'>
                             <div className='second_box'>
-                                <div className='firstttt'>20</div>
-                                <div className='scnd'>Years of Experience</div>
+                                <div className='firstttt'>5Lakh+</div>
+                                <div className='scnd'>Sq. ft. Area</div>
                             </div>
                             <div className='second_box'>
-                                <div className='firstttt'>15</div>
-                                <div className='scnd'>Awards & Recognition</div>
+                                <div className='firstttt'>220</div>
+                                <div className='scnd'>Units</div>
                             </div>
                         </div>
                     </div>
@@ -549,7 +571,7 @@ const AbodeMainLandingPage = () => {
                             <div className='bbhk'>2 BHK</div>
                             <div className='hbhk' onClick={() => {
                                 setBhkk(true)
-                                setBhkUris([floor5, floor6, floor7, floor8])
+                                setBhkUris([newFloor1, newFloor2,bhk2,bhk1,bhk3,bhk4,bhk5,bhk6,bhk7,bhk8,bhk9])
                                 if (document.getElementById("idgoeshere")) {
                                     document.getElementById("idgoeshere").scrollLeft = 0
                                 }
@@ -561,7 +583,7 @@ const AbodeMainLandingPage = () => {
                         <div className='comm_bhk'>
                             <div className='hbhk' onClick={() => {
                                 setBhkk(false)
-                                setBhkUris([floor1, floor2, floor3, floor4, floor3, floor4])
+                                setBhkUris([bhk32,bhk31,bhk33,bhk34,bhk35,bhk36,bhk37,bhk38,bhk39])
                                 if (document.getElementById("idgoeshere")) {
                                     document.getElementById("idgoeshere").scrollLeft = 0
                                 }
@@ -618,20 +640,40 @@ const AbodeMainLandingPage = () => {
                                     <span>1225 sq.ft.</span>
                                 </div>
                                 <div className="curr_image">
-                                    <img src={floor1} alt="" />
-                                    <span>1225 sq.ft.</span>
+                                    <img src={bhk1} alt="" />
+                                    <span>1234 sq.ft.</span>
                                 </div>
                                 <div className="curr_image">
-                                    <img src={floor1} alt="" />
-                                    <span>1225 sq.ft.</span>
+                                    <img src={bhk2} alt="" />
+                                    <span>1235 sq.ft.</span>
                                 </div>
                                 <div className="curr_image">
-                                    <img src={floor1} alt="" />
-                                    <span>1225 sq.ft.</span>
+                                    <img src={bhk3} alt="" />
+                                    <span>1239 sq.ft.</span>
                                 </div>
                                 <div className="curr_image">
-                                    <img src={floor1} alt="" />
-                                    <span>1225 sq.ft.</span>
+                                    <img src={bhk4} alt="" />
+                                    <span>1244 sq.ft.</span>
+                                </div>
+                                <div className="curr_image">
+                                    <img src={bhk5} alt="" />
+                                    <span>1255 sq.ft.</span>
+                                </div>   
+                                <div className="curr_image">
+                                    <img src={bhk6} alt="" />
+                                    <span>1256 sq.ft.</span>
+                                </div>   
+                                <div className="curr_image">
+                                    <img src={bhk7} alt="" />
+                                    <span>1267 sq.ft.</span>
+                                </div> 
+                                <div className="curr_image">
+                                    <img src={bhk8} alt="" />
+                                    <span>1268 sq.ft.</span>
+                                </div> 
+                                <div className="curr_image">
+                                    <img src={bhk9} alt="" />
+                                    <span>1273 sq.ft.</span>
                                 </div>
                                 <img src={right_arr} style={{ width: '2.3rem' }} className='rightArrow' onClick={() => {
                                     if (document.getElementById("idgoeshere")) {
@@ -661,32 +703,40 @@ const AbodeMainLandingPage = () => {
                             }} />
 
                             <div className="curr_image">
-                                <img src={floor2} alt="" />
-                                <span>La La Land</span>
+                                <img src={bhk31} alt="" />
+                                <span>1545 sq.ft.</span>
                             </div>
                             <div className="curr_image">
-                                <img src={floor2} alt="" />
-                                <span>Legends Die</span>
+                                <img src={bhk32} alt="" />
+                                <span>1583 sq.ft.</span>
                             </div>
                             <div className="curr_image">
-                                <img src={floor2} alt="" />
-                                <span>LMFAO</span>
+                                <img src={bhk33} alt="" />
+                                <span>1586 sq.ft.</span>
                             </div>
                             <div className="curr_image">
-                                <img src={floor2} alt="" />
-                                <span>Volume 2</span>
+                                <img src={bhk34} alt="" />
+                                <span>1607 sq.ft.</span>
                             </div>
                             <div className="curr_image">
-                                <img src={floor2} alt="" />
-                                <span>La La Land</span>
+                                <img src={bhk35} alt="" />
+                                <span>1608 sq.ft.</span>
                             </div>
                             <div className="curr_image">
-                                <img src={floor2} alt="" />
-                                <span>La La Land</span>
+                                <img src={bhk36} alt="" />
+                                <span>1675 sq.ft.</span>
                             </div>
                             <div className="curr_image">
-                                <img src={floor2} alt="" />
-                                <span>La La Land</span>
+                                <img src={bhk37} alt="" />
+                                <span>1680 sq.ft.</span>
+                            </div>
+                            <div className="curr_image">
+                                <img src={bhk38} alt="" />
+                                <span>1694 sq.ft.</span>
+                            </div>
+                            <div className="curr_image">
+                                <img src={bhk39} alt="" />
+                                <span>1697 sq.ft.</span>
                             </div>
                             <img src={right_arr} style={{ width: '2.3rem' }} className='rightArrow' onClick={() => {
                                 if(document.getElementById("idgoesheree")) {
@@ -888,7 +938,7 @@ const AbodeMainLandingPage = () => {
                                 <div></div>
                                 <div>
                                     <div className='top'>Email</div>
-                                    <div className='bottom'>contact@pioneer-group.in</div>
+                                    <div className='bottom'>contact@srivathsa.in</div>
                                 </div>
                             </div>
                             <div>
