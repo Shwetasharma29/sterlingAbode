@@ -1,6 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react'
 import "./abode.css"
 import map2 from "../Assets/map2.png"
+import map3 from "../Assets/map3.png"
+import map4 from "../Assets/map4.png"
+import Whatsapp from "../Assets/Whatsapp.svg"
+import map5 from "../Assets/map5.png"
 import star from "../Assets/star.svg"
 // import { Carousel } from '3d-react-carousal';
 import Carousel from 'react-spring-3d-carousel';
@@ -59,6 +63,7 @@ import bhk6 from '../Assets/bhk6.jpg'
 import bhk7 from '../Assets/bhk7.jpg'
 import bhk8 from '../Assets/bhk8.jpg'
 import bhk9 from '../Assets/bhk9.jpg'
+import bhk10 from '../Assets/bhk10.jpg'
 import floor2 from '../Assets/floor2.svg'
 import floor3 from '../Assets/floor3.svg'
 import floor4 from '../Assets/floor4.svg'
@@ -75,7 +80,7 @@ const AbodeMainLandingPage = () => {
     const [bhkk, setBhkk] = useState()
 
     const imageUris = [mainImage, mainImage2, mainImage3]
-    const [bhkUris, setBhkUris] = useState([newFloor1, newFloor2,bhk2,bhk1,bhk3,bhk4,bhk5,bhk6,bhk7,bhk8,bhk9])
+    const [bhkUris, setBhkUris] = useState([newFloor1, newFloor2,bhk2,bhk1,bhk3,bhk4,bhk5,bhk6,bhk7,bhk8,bhk9,bhk10,bhk3])
 
     const slides = [
         {
@@ -335,7 +340,11 @@ const AbodeMainLandingPage = () => {
                                 <div className='lux' style={{ fontFamily: "Lora" }}>Luxury Gated Apartments</div>
                                 <div className='livingss' style={{ fontFamily: "Lora" }}>Living spaces in Sainikpuri, <br /> Hyderabad</div>
                                 <div className='ready' style={{ fontFamily: "Lora" }}>Ready to Move-In</div>
-                                <div> <div className='download_broch' onClick={() => { setShowModal(true); }}>Download Brochure</div> </div>
+                                <div style={{display:"flex",justifyContent:"space-between"}}> 
+                                    <div className='download_broch' onClick={() => { setShowModal(true); }}>Download Brochure</div> 
+                                    <div className='whatIcon'><img src={Whatsapp}/></div>
+                                </div>
+                             
                             </div>
                             <div className='image_sabse_main' style={{ width: '60%', position: 'relative', zIndex: 1 }} >
                                 <div className='image-slider'>
@@ -572,7 +581,7 @@ const AbodeMainLandingPage = () => {
                             <div className='bbhk'>2 BHK</div>
                             <div className='hbhk' onClick={() => {
                                 setBhkk(true)
-                                setBhkUris([newFloor1, newFloor2,bhk2,bhk1,bhk3,bhk4,bhk5,bhk6,bhk7,bhk8,bhk9])
+                                setBhkUris([newFloor1, newFloor2,bhk2,bhk1,bhk3,bhk4,bhk5,bhk6,bhk7,bhk8,bhk9,bhk10,bhk3])
                                 if (document.getElementById("idgoeshere")) {
                                     document.getElementById("idgoeshere").scrollLeft = 0
                                 }
@@ -676,6 +685,14 @@ const AbodeMainLandingPage = () => {
                                     <img src={bhk9} alt="" />
                                     <span>1273 sq.ft.</span>
                                 </div>
+                                <div className="curr_image">
+                                    <img src={bhk10} alt="" />
+                                    <span>1279 sq.ft.</span>
+                                </div>
+                                <div className="curr_image">
+                                    <img src={bhk3} alt="" />
+                                    <span>1283 sq.ft.</span>
+                                </div>
                                 <img src={right_arr} style={{ width: '2.3rem' }} className='rightArrow' onClick={() => {
                                     if (document.getElementById("idgoeshere")) {
                                         document.getElementById("idgoeshere").scrollLeft = document.getElementById("idgoeshere").scrollLeft + 450
@@ -761,7 +778,7 @@ const AbodeMainLandingPage = () => {
                     <div className='amen_head' style={{ marginTop: "35px", marginBottom: "18px" }}>Connectivity</div>
                     <div className='Modern_spaced'>Convenient Location</div>
                     <div className='loc_div'>
-                        <div><img className='map_img' src={map2} alt='' /></div>
+                        <div><img className='map_img' src={activeTab == "NearBy"?map2:activeTab == "Education" ? map3:activeTab == "Hospitals" ? map4 : activeTab == "Malls" ? map5: ""} alt='' /></div>
                         <div className='lol'>
                             <div className='head_head'>
                                 <div onClick={() => { setActiveTab("NearBy"); }} className={`${activeTab === "NearBy" ? 'underhighlight' : 'highlight'}`}>
@@ -977,7 +994,7 @@ const AbodeMainLandingPage = () => {
                         <span className='seccccc' onClick={scrollToOverview}>Overview</span>
                         <span className='seccccc' onClick={scrollToAmenities}>Amenities</span>
                         <span className='seccccc' onClick={scrollToGallery}>Gallery</span>
-                        <span className='seccccc' onClick={scrollToFloorPlan}>Floor Plan</span>
+                        <span className='seccccc' onClick={scrollToFloorPlan} style={{textWrap:"nowrap"}}>Floor Plan</span>
                         <span className='seccccc' onClick={scrollToLocation}>Location</span>
                         <span className='seccccc' onClick={scrollToContact}>Contact</span>
                     </div>
