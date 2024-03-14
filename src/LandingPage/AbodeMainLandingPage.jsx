@@ -15,7 +15,7 @@ import left_arr from "../Assets/left_arr.svg"
 import Frame from "../Assets/Frame.png"
 import right_grey from "../Assets/right_grey.svg"
 import mainImage from "../Assets/mainImage.jpeg"
-import mainImage2 from "../Assets/mainImage2.jpeg"
+import mainImage2 from "../Assets/mainImage2.png"
 import mainImage3 from "../Assets/mainImage3.jpeg"
 import img1 from "../Assets/img1.png"
 import img2 from "../Assets/img2.png"
@@ -375,7 +375,7 @@ const AbodeMainLandingPage = () => {
                         </div>
                         <div className='secondRow2'>
                             <div className='second_box'>
-                                <div className='firstttt'>5Lakh+</div>
+                                <div className='firstttt'>5<span style={{fontSize:"50px"}}>Lakh+</span></div>
                                 <div className='scnd'>Sq. ft. Area</div>
                             </div>
                             <div className='second_box'>
@@ -388,7 +388,7 @@ const AbodeMainLandingPage = () => {
                 {/* 3rd part */}
                 <div ref={amenitiesRef} className='third_part'>
                     <div className='amen_head' style={{ marginTop: "50px", marginBottom: "18px" }}>Amenities</div>
-                    <div className='Modern_spaced'>Modern Spaced Designed for You</div>
+                    <div className='Modern_spaced'>Modern Spaces Tailored for You</div>
                     <div className='ssssss'>
                         <div class="grid-container">
                             <div class="grid-item grid_1">
@@ -441,6 +441,7 @@ const AbodeMainLandingPage = () => {
                             </div>
                         </div>
                     </div>
+                    <div className='amen_head' style={{marginBottom:"13px"}}>and so much more...</div>
                     <div className='download_broch' onClick={() => { setShowModal(true); }}>Download Brochure</div>
                 </div>
                 {/* 4th part */}
@@ -457,15 +458,15 @@ const AbodeMainLandingPage = () => {
                                     <div className='third_frst'>Living/Dining Room</div>
                                     <div className='gapppppguys'>
                                         <span><img style={{ height: "20px", width: "20px" }} alt='' src={star} /></span>
-                                        <span className='walls'>Floor - Marble</span>
+                                        <span className='walls'>Floor - Double charged vitrified tiles</span>
                                     </div>
                                     <div className='gapppppguys'>
                                         <span><img style={{ height: "20px", width: "20px" }} alt='' src={star} /></span>
-                                        <span className='walls'>Walls - Acrylic Emulsion / OBD</span>
+                                        <span className='walls'>Walls - Acrylic Emulsion</span>
                                     </div>
                                     <div className='gapppppguys'>
                                         <span><img style={{ height: "20px", width: "20px" }} alt='' src={star} /></span>
-                                        <span className='walls'>Celling - Acrylic Emulsion / OBD</span>
+                                        <span className='walls'>Main Door - Teak wood frame & teak veneered shutter</span>
                                     </div>
                                 </div>
                                 <div className='gapagain'>
@@ -484,15 +485,15 @@ const AbodeMainLandingPage = () => {
                                     <div className='third_frst'>Bedroom</div>
                                     <div className='gapppppguys'>
                                         <span><img style={{ height: "20px", width: "20px" }} alt='' src={star} /></span>
-                                        <span className='walls'>Floor - Laminated wooden flooring</span>
+                                        <span className='walls'>Floor - Double charged vitrified tiles</span>
                                     </div>
                                     <div className='gapppppguys'>
                                         <span><img style={{ height: "20px", width: "20px" }} alt='' src={star} /></span>
-                                        <span className='walls'>Walls - Acrylic Emulsion / OBD</span>
+                                        <span className='walls'>Walls - Acrylic Emulsion</span>
                                     </div>
                                     <div className='gapppppguys'>
                                         <span><img style={{ height: "20px", width: "20px" }} alt='' src={star} /></span>
-                                        <span className='walls'>Celling - Acrylic Emulsion / OBD</span>
+                                        <span className='walls'>Windows - Glass window system with mosquito mesh</span>
                                     </div>
                                 </div>
                                 <div className='gapagain2'>
@@ -515,19 +516,19 @@ const AbodeMainLandingPage = () => {
                                     </div> */}
                                     <div className='gapppppguys'>
                                         <span><img style={{ height: "20px", width: "20px" }} alt='' src={star} /></span>
-                                        <span className='walls'>Floor - Anti-skid Tiles</span>
+                                        <span className='walls'>Walls- Acrylic Emulsion </span>
                                     </div>
                                     <div className='gapppppguys'>
                                         <span><img style={{ height: "20px", width: "20px" }} alt='' src={star} /></span>
-                                        <span className='walls'>Celling - OBD</span>
+                                        <span className='walls'>Floor - Double charged vitrified tiles</span>
                                     </div>
-                                    <div className='gapppppguys'>
+                                    {/* <div className='gapppppguys'>
                                         <span><img style={{ height: "20px", width: "20px" }} alt='' src={star} /></span>
                                         <span className='walls'>Counter - Granite /Synthetic Stone</span>
-                                    </div>
+                                    </div> */}
                                     <div className='gapppppguys'>
                                         <span><img style={{ height: "20px", width: "20px" }} alt='' src={star} /></span>
-                                        <span className='walls'>Fittings / Fixtures - CP fittings, SS Sink, Exhaust fan</span>
+                                        <span className='walls'>Fittings - Individual tap for cooing, washing and other purpose. Provision for Dish Washer in utility area.</span>
                                     </div>
                                 </div>
                                 <div className='gapagain3'>
@@ -782,7 +783,7 @@ const AbodeMainLandingPage = () => {
                             </div>
                             {activeTab === "NearBy" ? (
                                 <div className='frst_cmn'>
-                                    <div>
+                                    <div className='convi_css'>
                                         <div style={{ gap: "16px", display: "flex" }}>
                                             <div><img style={{ height: "20px", width: "20px" }} alt='' src={star} /></div>
                                             <div>
@@ -798,7 +799,7 @@ const AbodeMainLandingPage = () => {
                                             </div>
                                         </div>
                                     </div>
-                                    <div>
+                                    <div className='convi_css'>
                                         <div style={{ gap: "16px", display: "flex" }}>
                                             <div><img style={{ height: "20px", width: "20px" }} alt='' src={star} /></div>
                                             <div>
@@ -810,7 +811,7 @@ const AbodeMainLandingPage = () => {
                                             <div><img style={{ height: "20px", width: "20px" }} alt='' src={star} /></div>
                                             <div>
                                                 <div className='overview'>Indus Universal School</div>
-                                                <div className='numberBold'>1,2km</div>
+                                                <div className='numberBold'>200km</div>
                                             </div>
                                         </div>
                                     </div>
@@ -973,11 +974,12 @@ const AbodeMainLandingPage = () => {
                     <div><img style={{ height: "100px", width: "152px", marginTop: "12px", marginBottom: "16px" }} src={logoo} alt='' /></div>
                     <div className='seccccc'>A Premium Gated Community of Luxury Apartments</div>
                     <div className='footer_heads'>
-                        <span className='seccccc'>Home</span>
-                        <span className='seccccc'>Overview</span>
-                        <span className='seccccc'>Amenities</span>
-                        <span className='seccccc'>Gallery</span>
-                        <span className='seccccc'>Contact</span>
+                        <span className='seccccc' onClick={scrollToOverview}>Overview</span>
+                        <span className='seccccc' onClick={scrollToAmenities}>Amenities</span>
+                        <span className='seccccc' onClick={scrollToGallery}>Gallery</span>
+                        <span className='seccccc' onClick={scrollToFloorPlan}>Floor Plan</span>
+                        <span className='seccccc' onClick={scrollToLocation}>Location</span>
+                        <span className='seccccc' onClick={scrollToContact}>Contact</span>
                     </div>
                     <div style={{ display: "flex", margin: "10px 0px 10px 0px", gap: "12px" }}>
                         <div><img src={facebook} /></div>
