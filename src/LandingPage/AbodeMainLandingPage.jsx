@@ -294,7 +294,7 @@ const AbodeMainLandingPage = () => {
                     </div>
                 </div>
             </div>}
-            <div id="lalala">
+            <div id="lalala" style={{overflowX:"hidden"}}>
                 {/* first part */}
                 <div>
                     <div className='first_headdd' >
