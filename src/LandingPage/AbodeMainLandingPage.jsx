@@ -159,7 +159,7 @@ const AbodeMainLandingPage = () => {
         if (name && phone && email) {
             try {
                 // const response = await fetch("https://idesign-quotation.s3.ap-south-1.amazonaws.com/NO_COMPANYNAME/Sterling%20Abode%20Brochure.pdf");
-                const response = await fetch("http://localhost:3000/brochure.pdf");
+                const response = await fetch(`${window.location.href}/brochure.pdf`);
                 const blob = await response.blob();
 
                 const url = window.URL.createObjectURL(new Blob([blob]));
