@@ -80,7 +80,8 @@ const AbodeMainLandingPage = () => {
     const [bhkk, setBhkk] = useState()
 
     const imageUris = [mainImage, mainImage2, mainImage3]
-    const [bhkUris, setBhkUris] = useState([newFloor1, newFloor2,bhk2,bhk1,bhk3,bhk4,bhk5,bhk6,bhk7,bhk8,bhk9,bhk10,bhk3])
+    const [bhkUris, setBhkUris] = useState([newFloor1, newFloor2, bhk2, bhk1, bhk3, bhk4, bhk5, bhk6, bhk7, bhk8, bhk9, bhk10, bhk3])
+    const [bhkTexts, setBhkTexts] = useState(['1176 sq.ft.', '1207 sq.ft.', '1225 sq.ft.', '1234 sq.ft.', '1235 sq.ft.', '1239 sq.ft.', '1244 sq.ft.', '1255 sq.ft', '1256 sq.ft.', '1267 sq.ft.', '1268 sq.ft.', '1273 sq.ft.', '1279 sq.ft.', '1283 sq.ft.'])
 
     const slides = [
         {
@@ -136,10 +137,29 @@ const AbodeMainLandingPage = () => {
     }
     const [index, setIndex] = useState(0);
 
+    // const handleDownload = async () => {
+    //     if (name && phone && email) {
+    //         try {
+    //             const url = 'http://localhost:3000/brochure.pdf'
+    //             fetch(url).then(response => response.blob()).then(blob => {
+    //                 const file = window.URL.createObjectURL(new Blob([blob]))
+    //                 const filename = url.split("brochure.pdf")
+                    
+    //             })
+    //         } catch (error) {
+    //             console.error('Error downloading PDF:', error);
+    //             alert('An error occurred while downloading the PDF.');
+    //         }
+    //     } else {
+    //         alert('Please fill all fields before downloading.');
+    //     }
+    // };
+    
     const handleDownload = async () => {
         if (name && phone && email) {
             try {
-                const response = await fetch("https://idesign-quotation.s3.ap-south-1.amazonaws.com/NO_COMPANYNAME/Sterling%20Abode%20Brochure.pdf");
+                // const response = await fetch("https://idesign-quotation.s3.ap-south-1.amazonaws.com/NO_COMPANYNAME/Sterling%20Abode%20Brochure.pdf");
+                const response = await fetch("http://localhost:3000/brochure.pdf");
                 const blob = await response.blob();
 
                 const url = window.URL.createObjectURL(new Blob([blob]));
@@ -164,7 +184,6 @@ const AbodeMainLandingPage = () => {
             alert('Please fill all fields before downloading.');
         }
     };
-
 
     useEffect(() => {
         const timer = setTimeout(() => {
@@ -258,7 +277,7 @@ const AbodeMainLandingPage = () => {
 
     return (
         <div>
-            {enlarge && <div className="enlargedSlide" ref={enlragedSlideRef} style={{ top: enlargedTop + 61 }}>
+            {enlarge && <div className="enlargedSlide" ref={enlragedSlideRef} style={{ top: enlargedTop + (window.innerHeight / 95)}}>
                 <img src={imageUris[enlargedSlideIndex]} alt="" />
                 <div className="bottomBar">
                     <span>{enlargedSlideIndex + 1} / {imageUris.length}</span>
@@ -280,6 +299,7 @@ const AbodeMainLandingPage = () => {
                 <img src={bhkUris[enlargedBHKIndex]} alt="" />
                 <div className="bottomBar">
                     <span>{enlargedBHKIndex + 1} / {bhkUris.length}</span>
+                    <span>{bhkTexts[enlargedBHKIndex]}</span>
                     <div className="controlBtns">
                         <img src={left_arr} style={{ marginRight: '1rem', width: '2.3rem' }} onClick={() => {
                             if (enlargedBHKIndex > 0) {
@@ -294,15 +314,15 @@ const AbodeMainLandingPage = () => {
                     </div>
                 </div>
             </div>}
-            <div id="lalala" style={{overflowX:"hidden"}}>
+            <div id="lalala" style={{ overflowX: "hidden" }}>
                 {/* first part */}
                 <div>
                     <div className='first_headdd' >
                         {/* navbar */}
                         <div className='top_top'>
                             <div className='frst_logoo'>
-                                <img src={logoo} alt='logo' className='fullscreen'/>
-                                <img src={logo1440} className='mid1440'/>
+                                <img src={logoo} alt='logo' className='fullscreen' />
+                                <img src={logo1440} className='mid1440' />
                             </div>
                             <div className='for_gap'>
                                 <span className='first_heading' style={{ cursor: "pointer" }} onClick={scrollToOverview}>OVERVIEW</span>
@@ -319,7 +339,9 @@ const AbodeMainLandingPage = () => {
                                             <path fill="#fff" d="M4.868,43.303l2.694-9.835C5.9,30.59,5.026,27.324,5.027,23.979C5.032,13.514,13.548,5,24.014,5c5.079,0.002,9.845,1.979,13.43,5.566c3.584,3.588,5.558,8.356,5.556,13.428c-0.004,10.465-8.522,18.98-18.986,18.98c-0.001,0,0,0,0,0h-0.008c-3.177-0.001-6.3-0.798-9.073-2.311L4.868,43.303z"></path><path fill="#fff" d="M4.868,43.803c-0.132,0-0.26-0.052-0.355-0.148c-0.125-0.127-0.174-0.312-0.127-0.483l2.639-9.636c-1.636-2.906-2.499-6.206-2.497-9.556C4.532,13.238,13.273,4.5,24.014,4.5c5.21,0.002,10.105,2.031,13.784,5.713c3.679,3.683,5.704,8.577,5.702,13.781c-0.004,10.741-8.746,19.48-19.486,19.48c-3.189-0.001-6.344-0.788-9.144-2.277l-9.875,2.589C4.953,43.798,4.911,43.803,4.868,43.803z"></path><path fill="#cfd8dc" d="M24.014,5c5.079,0.002,9.845,1.979,13.43,5.566c3.584,3.588,5.558,8.356,5.556,13.428c-0.004,10.465-8.522,18.98-18.986,18.98h-0.008c-3.177-0.001-6.3-0.798-9.073-2.311L4.868,43.303l2.694-9.835C5.9,30.59,5.026,27.324,5.027,23.979C5.032,13.514,13.548,5,24.014,5 M24.014,42.974C24.014,42.974,24.014,42.974,24.014,42.974C24.014,42.974,24.014,42.974,24.014,42.974 M24.014,42.974C24.014,42.974,24.014,42.974,24.014,42.974C24.014,42.974,24.014,42.974,24.014,42.974 M24.014,4C24.014,4,24.014,4,24.014,4C12.998,4,4.032,12.962,4.027,23.979c-0.001,3.367,0.849,6.685,2.461,9.622l-2.585,9.439c-0.094,0.345,0.002,0.713,0.254,0.967c0.19,0.192,0.447,0.297,0.711,0.297c0.085,0,0.17-0.011,0.254-0.033l9.687-2.54c2.828,1.468,5.998,2.243,9.197,2.244c11.024,0,19.99-8.963,19.995-19.98c0.002-5.339-2.075-10.359-5.848-14.135C34.378,6.083,29.357,4.002,24.014,4L24.014,4z"></path><path fill="#40c351" d="M35.176,12.832c-2.98-2.982-6.941-4.625-11.157-4.626c-8.704,0-15.783,7.076-15.787,15.774c-0.001,2.981,0.833,5.883,2.413,8.396l0.376,0.597l-1.595,5.821l5.973-1.566l0.577,0.342c2.422,1.438,5.2,2.198,8.032,2.199h0.006c8.698,0,15.777-7.077,15.78-15.776C39.795,19.778,38.156,15.814,35.176,12.832z"></path><path fill="#fff" fill-rule="evenodd" d="M19.268,16.045c-0.355-0.79-0.729-0.806-1.068-0.82c-0.277-0.012-0.593-0.011-0.909-0.011c-0.316,0-0.83,0.119-1.265,0.594c-0.435,0.475-1.661,1.622-1.661,3.956c0,2.334,1.7,4.59,1.937,4.906c0.237,0.316,3.282,5.259,8.104,7.161c4.007,1.58,4.823,1.266,5.693,1.187c0.87-0.079,2.807-1.147,3.202-2.255c0.395-1.108,0.395-2.057,0.277-2.255c-0.119-0.198-0.435-0.316-0.909-0.554s-2.807-1.385-3.242-1.543c-0.435-0.158-0.751-0.237-1.068,0.238c-0.316,0.474-1.225,1.543-1.502,1.859c-0.277,0.317-0.554,0.357-1.028,0.119c-0.474-0.238-2.002-0.738-3.815-2.354c-1.41-1.257-2.362-2.81-2.639-3.285c-0.277-0.474-0.03-0.731,0.208-0.968c0.213-0.213,0.474-0.554,0.712-0.831c0.237-0.277,0.316-0.475,0.474-0.791c0.158-0.317,0.079-0.594-0.04-0.831C20.612,19.329,19.69,16.983,19.268,16.045z" clip-rule="evenodd"></path>
                                         </svg>
                                     </span>
-                                    <span className='first_heading'>+919100008979</span>
+                                    <span className='first_heading' onClick={() => {
+                                        window.open('https://web.whatsapp.com/send?phone=+919100008979')
+                                    }}>+919100008979</span>
                                 </div>
                                 <div className='vectimm'
                                     onClick={() => { setShow(true); }}
@@ -340,11 +362,11 @@ const AbodeMainLandingPage = () => {
                                 <div className='lux' style={{ fontFamily: "Lora" }}>Luxury Gated Apartments</div>
                                 <div className='livingss' style={{ fontFamily: "Lora" }}>Living spaces in Sainikpuri, <br /> Hyderabad</div>
                                 <div className='ready' style={{ fontFamily: "Lora" }}>Ready to Move-In</div>
-                                <div style={{display:"flex",justifyContent:"space-between"}}> 
-                                    <div className='download_broch' onClick={() => { setShowModal(true); }}>Download Brochure</div> 
-                                    <div className='whatIcon'><img src={Whatsapp}/></div>
+                                <div style={{ display: "flex", justifyContent: "space-between" }}>
+                                    <div className='download_broch' onClick={() => { setShowModal(true); }}>Download Brochure</div>
+                                    <div className='whatIcon'><img src={Whatsapp} /></div>
                                 </div>
-                             
+
                             </div>
                             <div className='image_sabse_main' style={{ width: '60%', position: 'relative', zIndex: 1 }} >
                                 <div className='image-slider'>
@@ -368,7 +390,7 @@ const AbodeMainLandingPage = () => {
                 <div className="background-div">
                     <div className='frst_box'>
                         <div className='overview'>Overview</div>
-                        <div className='yellow_head'>Building Dreams with Sterling Abode</div>
+                        <div className='yellow_head'  style={{fontFamily:"lora"}}>Building Dreams with Sterling Abode</div>
                         {/* <div className='learn'>learn more</div> */}
                     </div>
                     <div className='secondRow'>
@@ -384,7 +406,7 @@ const AbodeMainLandingPage = () => {
                         </div>
                         <div className='secondRow2'>
                             <div className='second_box'>
-                                <div className='firstttt'>5<span style={{fontSize:"50px"}}>Lakh+</span></div>
+                                <div className='firstttt'>5<span style={{ fontSize: "50px" }}>Lakh+</span></div>
                                 <div className='scnd'>Sq. ft. Area</div>
                             </div>
                             <div className='second_box'>
@@ -450,13 +472,13 @@ const AbodeMainLandingPage = () => {
                             </div>
                         </div>
                     </div>
-                    <div className='amen_head' style={{marginBottom:"13px"}}>and so much more...</div>
+                    <div className='amen_head' style={{ marginBottom: "13px" }}>and so much more...</div>
                     <div className='download_broch' onClick={() => { setShowModal(true); }}>Download Brochure</div>
                 </div>
                 {/* 4th part */}
                 <div className='fourth_part'>
                     <div className='comn_hox22'>
-                        <div className='yellow_head2'>Specifications</div>
+                        <div className='yellow_head2' style={{fontFamily:"lora"}}>Specifications</div>
                     </div>
                     {/* bydefault */}
                     {specification == "livingRoom" &&
@@ -550,7 +572,7 @@ const AbodeMainLandingPage = () => {
                 </div>
                 {/* 5th part */}
                 <div ref={galleryRef} style={{ backgroundColor: "#122620", textAlign: "center", display: 'flex', alignItems: 'center', flexDirection: 'column' }}>
-                    <div className='gallery'>Gallery</div>
+                    <div className='gallery' style={{fontFamily:"lora"}}>Gallery</div>
                     {/* <div> */}
                     <Carousel
                         slides={slides}
@@ -574,14 +596,15 @@ const AbodeMainLandingPage = () => {
                 <div ref={floorPlanRef} className='sixth_part'>
                     <div className='comn_hox'>
                         <div className='overview' style={{ paddingTop: "5px" }}>Floor Plan</div>
-                        <div className='yellow_head'>Discover Your Perfect Space</div>
+                        <div className='yellow_head' style={{fontFamily:"lora"}}>Discover Your Perfect Space</div>
                     </div>
                     {!bhkk ?
                         <div className='comm_bhk'>
                             <div className='bbhk'>2 BHK</div>
                             <div className='hbhk' onClick={() => {
                                 setBhkk(true)
-                                setBhkUris([newFloor1, newFloor2,bhk2,bhk1,bhk3,bhk4,bhk5,bhk6,bhk7,bhk8,bhk9,bhk10,bhk3])
+                                setBhkUris([bhk32, bhk31, bhk33, bhk34, bhk35, bhk36, bhk37, bhk38, bhk39])
+                                setBhkTexts(['1545 sq.ft.', '1583 sq.ft.', '1586 sq.ft.', '1607 sq.ft.', '1608 sq.ft.', '1675 sq.ft.', '1680 sq.ft', '1694 sq.ft.', '1697 sq.ft.'])
                                 if (document.getElementById("idgoeshere")) {
                                     document.getElementById("idgoeshere").scrollLeft = 0
                                 }
@@ -593,7 +616,8 @@ const AbodeMainLandingPage = () => {
                         <div className='comm_bhk'>
                             <div className='hbhk' onClick={() => {
                                 setBhkk(false)
-                                setBhkUris([bhk32,bhk31,bhk33,bhk34,bhk35,bhk36,bhk37,bhk38,bhk39])
+                                setBhkUris([newFloor1, newFloor2, bhk2, bhk1, bhk3, bhk4, bhk5, bhk6, bhk7, bhk8, bhk9, bhk10, bhk3])
+                                setBhkTexts(['1176 sq.ft.', '1207 sq.ft.', '1225 sq.ft.', '1234 sq.ft.', '1235 sq.ft.', '1239 sq.ft.', '1244 sq.ft.', '1255 sq.ft', '1256 sq.ft.', '1267 sq.ft.', '1268 sq.ft.', '1273 sq.ft.', '1279 sq.ft.', '1283 sq.ft.'])
                                 if (document.getElementById("idgoeshere")) {
                                     document.getElementById("idgoeshere").scrollLeft = 0
                                 }
@@ -668,19 +692,19 @@ const AbodeMainLandingPage = () => {
                                 <div className="curr_image">
                                     <img src={bhk5} alt="" />
                                     <span>1255 sq.ft.</span>
-                                </div>   
+                                </div>
                                 <div className="curr_image">
                                     <img src={bhk6} alt="" />
                                     <span>1256 sq.ft.</span>
-                                </div>   
+                                </div>
                                 <div className="curr_image">
                                     <img src={bhk7} alt="" />
                                     <span>1267 sq.ft.</span>
-                                </div> 
+                                </div>
                                 <div className="curr_image">
                                     <img src={bhk8} alt="" />
                                     <span>1268 sq.ft.</span>
-                                </div> 
+                                </div>
                                 <div className="curr_image">
                                     <img src={bhk9} alt="" />
                                     <span>1273 sq.ft.</span>
@@ -700,7 +724,7 @@ const AbodeMainLandingPage = () => {
                                 }} />
                             </div> :
                             <div className='comn_floor2' id="idgoesheree">
-                            {/* <div className='frst_floor'>
+                                {/* <div className='frst_floor'>
                                 <div className='frst_frst'>
                                     <div><img className='floor_imagesss' src={floor5} /></div>
                                     <div><img className='floor_imagesss' src={floor6} /></div>
@@ -714,54 +738,54 @@ const AbodeMainLandingPage = () => {
                                 </div>
                                 <div className='numberBold2'>1697 sq.ft.</div>
                             </div> */}
-                            <img src={left_arr} style={{ marginRight: '1rem', width: '2.3rem' }} className='leftArrow' onClick={() => {
-                                if(document.getElementById("idgoesheree")) {
-                                    document.getElementById("idgoesheree").scrollLeft = document.getElementById("idgoesheree").scrollLeft - 450
-                                }
-                            }} />
+                                <img src={left_arr} style={{ marginRight: '1rem', width: '2.3rem' }} className='leftArrow' onClick={() => {
+                                    if (document.getElementById("idgoesheree")) {
+                                        document.getElementById("idgoesheree").scrollLeft = document.getElementById("idgoesheree").scrollLeft - 450
+                                    }
+                                }} />
 
-                            <div className="curr_image">
-                                <img src={bhk31} alt="" />
-                                <span>1545 sq.ft.</span>
+                                <div className="curr_image">
+                                    <img src={bhk31} alt="" />
+                                    <span>1545 sq.ft.</span>
+                                </div>
+                                <div className="curr_image">
+                                    <img src={bhk32} alt="" />
+                                    <span>1583 sq.ft.</span>
+                                </div>
+                                <div className="curr_image">
+                                    <img src={bhk33} alt="" />
+                                    <span>1586 sq.ft.</span>
+                                </div>
+                                <div className="curr_image">
+                                    <img src={bhk34} alt="" />
+                                    <span>1607 sq.ft.</span>
+                                </div>
+                                <div className="curr_image">
+                                    <img src={bhk35} alt="" />
+                                    <span>1608 sq.ft.</span>
+                                </div>
+                                <div className="curr_image">
+                                    <img src={bhk36} alt="" />
+                                    <span>1675 sq.ft.</span>
+                                </div>
+                                <div className="curr_image">
+                                    <img src={bhk37} alt="" />
+                                    <span>1680 sq.ft.</span>
+                                </div>
+                                <div className="curr_image">
+                                    <img src={bhk38} alt="" />
+                                    <span>1694 sq.ft.</span>
+                                </div>
+                                <div className="curr_image">
+                                    <img src={bhk39} alt="" />
+                                    <span>1697 sq.ft.</span>
+                                </div>
+                                <img src={right_arr} style={{ width: '2.3rem' }} className='rightArrow' onClick={() => {
+                                    if (document.getElementById("idgoesheree")) {
+                                        document.getElementById("idgoesheree").scrollLeft = document.getElementById("idgoesheree").scrollLeft + 450
+                                    }
+                                }} />
                             </div>
-                            <div className="curr_image">
-                                <img src={bhk32} alt="" />
-                                <span>1583 sq.ft.</span>
-                            </div>
-                            <div className="curr_image">
-                                <img src={bhk33} alt="" />
-                                <span>1586 sq.ft.</span>
-                            </div>
-                            <div className="curr_image">
-                                <img src={bhk34} alt="" />
-                                <span>1607 sq.ft.</span>
-                            </div>
-                            <div className="curr_image">
-                                <img src={bhk35} alt="" />
-                                <span>1608 sq.ft.</span>
-                            </div>
-                            <div className="curr_image">
-                                <img src={bhk36} alt="" />
-                                <span>1675 sq.ft.</span>
-                            </div>
-                            <div className="curr_image">
-                                <img src={bhk37} alt="" />
-                                <span>1680 sq.ft.</span>
-                            </div>
-                            <div className="curr_image">
-                                <img src={bhk38} alt="" />
-                                <span>1694 sq.ft.</span>
-                            </div>
-                            <div className="curr_image">
-                                <img src={bhk39} alt="" />
-                                <span>1697 sq.ft.</span>
-                            </div>
-                            <img src={right_arr} style={{ width: '2.3rem' }} className='rightArrow' onClick={() => {
-                                if(document.getElementById("idgoesheree")) {
-                                    document.getElementById("idgoesheree").scrollLeft = document.getElementById("idgoesheree").scrollLeft + 450
-                                }
-                            }} />
-                        </div>
                         }
                     </div>
                     <div className='learn' onClick={() => {
@@ -778,24 +802,24 @@ const AbodeMainLandingPage = () => {
                     <div className='amen_head' style={{ marginTop: "35px", marginBottom: "18px" }}>Connectivity</div>
                     <div className='Modern_spaced'>Convenient Location</div>
                     <div className='loc_div'>
-                        <div><img className='map_img' src={activeTab == "NearBy"?map2:activeTab == "Education" ? map3:activeTab == "Hospitals" ? map4 : activeTab == "Malls" ? map5: ""} alt='' /></div>
+                        <div><img className='map_img' src={activeTab == "NearBy" ? map2 : activeTab == "Education" ? map3 : activeTab == "Hospitals" ? map4 : activeTab == "Malls" ? map5 : ""} alt='' /></div>
                         <div className='lol'>
                             <div className='head_head'>
                                 <div onClick={() => { setActiveTab("NearBy"); }} className={`${activeTab === "NearBy" ? 'underhighlight' : 'highlight'}`}>
-                                  <div>Near By</div> 
-                                  {activeTab === "NearBy" && <div style={{width:"65px",height:"1.5px",backgroundColor:"#d6ad60"}}></div>}
+                                    <div>Near By</div>
+                                    {activeTab === "NearBy" && <div style={{ width: "65px", height: "1.5px", backgroundColor: "#d6ad60" }}></div>}
                                 </div>
                                 <div onClick={() => { setActiveTab("Education"); }} className={`${activeTab === "Education" ? 'underhighlight' : 'highlight'}`}>
                                     <div>Education</div>
-                                    {activeTab === "Education" && <div style={{width:"82px",height:"1.5px",backgroundColor:"#d6ad60"}}></div>}
+                                    {activeTab === "Education" && <div style={{ width: "82px", height: "1.5px", backgroundColor: "#d6ad60" }}></div>}
                                 </div>
                                 <div onClick={() => { setActiveTab("Hospitals"); }} className={`${activeTab === "Hospitals" ? 'underhighlight' : 'highlight'}`}>
                                     <div>Hospitals</div>
-                                    {activeTab === "Hospitals" && <div style={{width:"74px",height:"1.5px",backgroundColor:"#d6ad60"}}></div>}    
+                                    {activeTab === "Hospitals" && <div style={{ width: "74px", height: "1.5px", backgroundColor: "#d6ad60" }}></div>}
                                 </div>
                                 <div onClick={() => { setActiveTab("Malls"); }} className={`${activeTab === "Malls" ? 'underhighlight' : 'highlight'}`}>
                                     <div>Malls</div>
-                                    {activeTab === "Malls" && <div style={{width:"46px",height:"1.5px",backgroundColor:"#d6ad60"}}></div>}        
+                                    {activeTab === "Malls" && <div style={{ width: "46px", height: "1.5px", backgroundColor: "#d6ad60" }}></div>}
                                 </div>
                             </div>
                             {activeTab === "NearBy" ? (
@@ -956,7 +980,7 @@ const AbodeMainLandingPage = () => {
                                 <div></div>
                                 <div>
                                     <div className='top'>Email</div>
-                                    <div className='bottom'>contact@srivathsa.in</div>
+                                    <div className='bottom'>contact@srivathsahomes.com</div>
                                 </div>
                             </div>
                             <div>
@@ -994,7 +1018,7 @@ const AbodeMainLandingPage = () => {
                         <span className='seccccc' onClick={scrollToOverview}>Overview</span>
                         <span className='seccccc' onClick={scrollToAmenities}>Amenities</span>
                         <span className='seccccc' onClick={scrollToGallery}>Gallery</span>
-                        <span className='seccccc' onClick={scrollToFloorPlan} style={{textWrap:"nowrap"}}>Floor Plan</span>
+                        <span className='seccccc' onClick={scrollToFloorPlan} style={{ textWrap: "nowrap" }}>Floor Plan</span>
                         <span className='seccccc' onClick={scrollToLocation}>Location</span>
                         <span className='seccccc' onClick={scrollToContact}>Contact</span>
                     </div>
