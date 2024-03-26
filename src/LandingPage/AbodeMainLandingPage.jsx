@@ -144,7 +144,7 @@ const AbodeMainLandingPage = () => {
     //             fetch(url).then(response => response.blob()).then(blob => {
     //                 const file = window.URL.createObjectURL(new Blob([blob]))
     //                 const filename = url.split("brochure.pdf")
-                    
+
     //             })
     //         } catch (error) {
     //             console.error('Error downloading PDF:', error);
@@ -154,7 +154,7 @@ const AbodeMainLandingPage = () => {
     //         alert('Please fill all fields before downloading.');
     //     }
     // };
-    
+
     const handleDownload = async () => {
         if (name && phone && email) {
             try {
@@ -207,6 +207,27 @@ const AbodeMainLandingPage = () => {
         amenitiesRef.current.scrollIntoView({ behavior: 'smooth' });
     };
 
+    const handleEmailChange = (e) => {
+        const inputValue = e.target.value;
+
+        // Update the email state with the input value
+        setEmail(inputValue);
+    };
+
+    const validateEmail = () => {
+        // Regular expression pattern to validate email format
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailPattern.test(email);
+    };
+    const handlePhoneChange = (e) => {
+        const inputValue = e.target.value;
+
+        // Remove any non-numeric characters from the input
+        const numericValue = inputValue.replace(/\D/g, '');
+
+        // Update the phone state with the numeric value
+        setPhone(numericValue);
+    };
     const scrollToGallery = () => {
         galleryRef.current.scrollIntoView({ behavior: 'smooth' });
     };
@@ -254,6 +275,7 @@ const AbodeMainLandingPage = () => {
                 document.getElementById("lalala").style.transform = ""
             }
         }
+
         if (bhkRef.current && !bhkRef.current.contains(event.target)) {
             //   setShowPopup(false);
             setEnlargeBHK(false)
@@ -277,7 +299,7 @@ const AbodeMainLandingPage = () => {
 
     return (
         <div>
-            {enlarge && <div className="enlargedSlide" ref={enlragedSlideRef} style={{ top: enlargedTop + (window.innerHeight / 95)}}>
+            {enlarge && <div className="enlargedSlide" ref={enlragedSlideRef} style={{ top: enlargedTop + (window.innerHeight / 95) }}>
                 <img src={imageUris[enlargedSlideIndex]} alt="" />
                 <div className="bottomBar">
                     <span>{enlargedSlideIndex + 1} / {imageUris.length}</span>
@@ -385,12 +407,13 @@ const AbodeMainLandingPage = () => {
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>``
                 {/* 2nd part */}
                 <div className="background-div">
                     <div className='frst_box'>
                         <div className='overview'>Overview</div>
-                        <div className='yellow_head'  style={{fontFamily:"lora"}}>Building Dreams with Sterling Abode</div>
+                        <div className='yellow_head' style={{ fontFamily: "lora" }}>Building Dreams with Sterling Abode</div>
+                        <div className='meth_head'>Explore a world of spacious living and contemporary design with our meticulously crafted 2 - 3 BHK premium Flats & apartments in Hyderabad. Experience the security and serenity of gated community apartments at Sterling Abode.</div>
                         {/* <div className='learn'>learn more</div> */}
                     </div>
                     <div className='secondRow'>
@@ -420,6 +443,7 @@ const AbodeMainLandingPage = () => {
                 <div ref={amenitiesRef} className='third_part'>
                     <div className='amen_head' style={{ marginTop: "50px", marginBottom: "18px" }}>Amenities</div>
                     <div className='Modern_spaced'>Modern Spaces Tailored for You</div>
+                    <div className="coke_head">Our apartments offer not just a home but a heaven where your peace of mind is a top priority.</div>
                     <div className='ssssss'>
                         <div class="grid-container">
                             <div class="grid-item grid_1">
@@ -478,7 +502,7 @@ const AbodeMainLandingPage = () => {
                 {/* 4th part */}
                 <div className='fourth_part'>
                     <div className='comn_hox22'>
-                        <div className='yellow_head2' style={{fontFamily:"lora"}}>Specifications</div>
+                        <div className='yellow_head2' style={{ fontFamily: "lora" }}>Specifications</div>
                     </div>
                     {/* bydefault */}
                     {specification == "livingRoom" &&
@@ -572,7 +596,7 @@ const AbodeMainLandingPage = () => {
                 </div>
                 {/* 5th part */}
                 <div ref={galleryRef} style={{ backgroundColor: "#122620", textAlign: "center", display: 'flex', alignItems: 'center', flexDirection: 'column' }}>
-                    <div className='gallery' style={{fontFamily:"lora"}}>Gallery</div>
+                    <div className='gallery' style={{ fontFamily: "lora" }}>Gallery</div>
                     {/* <div> */}
                     <Carousel
                         slides={slides}
@@ -596,7 +620,7 @@ const AbodeMainLandingPage = () => {
                 <div ref={floorPlanRef} className='sixth_part'>
                     <div className='comn_hox'>
                         <div className='overview' style={{ paddingTop: "5px" }}>Floor Plan</div>
-                        <div className='yellow_head' style={{fontFamily:"lora"}}>Discover Your Perfect Space</div>
+                        <div className='yellow_head' style={{ fontFamily: "lora" }}>Discover Your Perfect Space</div>
                     </div>
                     {!bhkk ?
                         <div className='comm_bhk'>
@@ -1058,8 +1082,10 @@ const AbodeMainLandingPage = () => {
                                 alignItems: "center"
                             }}>
                                 <div><input className='formRow' placeholder='Name' value={name} onChange={(e) => setName(e.target.value)} /></div>
-                                <div><input className='formRow' placeholder='Phone' value={phone} onChange={(e) => setPhone(e.target.value)} /></div>
-                                <div><input className='formRow' placeholder='Email' value={email} onChange={(e) => setEmail(e.target.value)} /></div>
+                                <div><input className='formRow' placeholder='Phone'  value={phone}   maxLength={10}
+                              onChange={(e) => {  handlePhoneChange(e); }} 
+                              /></div>
+                                <div><input className='formRow' placeholder='Email' value={email}  onChange={handleEmailChange} /></div>
                             </div>
                             <div className='submit_btn' onClick={handleDownload}>Submit</div>
                         </div>
@@ -1084,4 +1110,4 @@ const AbodeMainLandingPage = () => {
     )
 }
 
-export default AbodeMainLandingPage 
+export default AbodeMainLandingPage     
