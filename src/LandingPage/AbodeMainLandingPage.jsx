@@ -1,12 +1,20 @@
 import React, { useEffect, useRef, useState } from 'react'
 import "./abode.css"
 import map2 from "../Assets/map2.png"
+import yoga from "../Assets/yoga.svg"
 import map3 from "../Assets/map3.png"
 import map4 from "../Assets/map4.png"
+import water from "../Assets/water plant.svg"
+import tennis from "../Assets/tennis.svg"
 import Whatsapp from "../Assets/Whatsapp.svg"
+import swimming from "../Assets/swimming pool.svg"
+import seniorCitizen from "../Assets/senior citizen.svg"
+import partylawn from "../Assets/party lawn.svg"
+import sprinkler from "../Assets/sprinkler.svg"
 import map5 from "../Assets/map5.png"
 import star from "../Assets/star.svg"
 // import { Carousel } from '3d-react-carousal';
+import jogging from "../Assets/Jogging.svg"
 import Carousel from 'react-spring-3d-carousel';
 import logoo from "../Assets/logoo.svg"
 import logo1440 from "../Assets/logo1440.svg"
@@ -18,6 +26,9 @@ import Vector from "../Assets/Vector.svg"
 import left_arr from "../Assets/left_arr.svg"
 import Frame from "../Assets/Frame.png"
 import right_grey from "../Assets/right_grey.svg"
+import clubhouse from "../Assets/club house.svg"
+import gym from "../Assets/gym.svg"
+import camera from "../Assets/camera.svg"
 import mainImage from "../Assets/mainImage.jpeg"
 import mainImage2 from "../Assets/mainImage2.png"
 import mainImage3 from "../Assets/mainImage3.jpeg"
@@ -34,6 +45,7 @@ import img6 from "../Assets/img6.png"
 import img7 from "../Assets/img7.png"
 import img8 from "../Assets/img8.png"
 import img9 from "../Assets/img9.png"
+import playgroung from "../Assets/playgroung.svg"
 import img10 from "../Assets/img10.png"
 import img11 from "../Assets/img11.png"
 import img12 from "../Assets/img12.png"
@@ -156,24 +168,24 @@ const AbodeMainLandingPage = () => {
     // };
 
     const handleDownload = async () => {
-        if (name && phone && email) {
+        if (email && isValidEmail) { // Include isValidEmail in the condition
             try {
                 // const response = await fetch("https://idesign-quotation.s3.ap-south-1.amazonaws.com/NO_COMPANYNAME/Sterling%20Abode%20Brochure.pdf");
                 const response = await fetch(`${window.location.href}/brochure.pdf`);
                 const blob = await response.blob();
-
+    
                 const url = window.URL.createObjectURL(new Blob([blob]));
-
+    
                 const link = document.createElement('a');
                 link.href = url;
                 link.setAttribute('download', 'brochure.pdf');
                 document.body.appendChild(link);
-
+    
                 link.click();
-
+    
                 document.body.removeChild(link);
                 window.URL.revokeObjectURL(url);
-
+    
                 setShowModal(false);
                 setShowModal2(true);
             } catch (error) {
@@ -181,9 +193,10 @@ const AbodeMainLandingPage = () => {
                 alert('An error occurred while downloading the PDF.');
             }
         } else {
-            alert('Please fill all fields before downloading.');
+            alert('Please fill all fields and provide a valid email address before downloading.');
         }
     };
+    
 
     useEffect(() => {
         const timer = setTimeout(() => {
@@ -207,27 +220,6 @@ const AbodeMainLandingPage = () => {
         amenitiesRef.current.scrollIntoView({ behavior: 'smooth' });
     };
 
-    const handleEmailChange = (e) => {
-        const inputValue = e.target.value;
-
-        // Update the email state with the input value
-        setEmail(inputValue);
-    };
-
-    const validateEmail = () => {
-        // Regular expression pattern to validate email format
-        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return emailPattern.test(email);
-    };
-    const handlePhoneChange = (e) => {
-        const inputValue = e.target.value;
-
-        // Remove any non-numeric characters from the input
-        const numericValue = inputValue.replace(/\D/g, '');
-
-        // Update the phone state with the numeric value
-        setPhone(numericValue);
-    };
     const scrollToGallery = () => {
         galleryRef.current.scrollIntoView({ behavior: 'smooth' });
     };
@@ -289,7 +281,24 @@ const AbodeMainLandingPage = () => {
             }
         }
     };
+    const handlePhoneChange = (e) => {
+        const inputValue = e.target.value;
 
+        // Remove any non-numeric characters from the input
+        const numericValue = inputValue.replace(/\D/g, '');
+
+        // Update the phone state with the numeric value
+        setPhone(numericValue);
+    };
+    const [isValidEmail, setIsValidEmail] = useState(true);
+
+    const handleEmailChange = (e) => {
+        const enteredEmail = e.target.value;
+        setEmail(enteredEmail);
+        // Regular expression for email validation
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        setIsValidEmail(emailRegex.test(enteredEmail));
+    };
     useEffect(() => {
         document.addEventListener("mousedown", handleClickOutside);
         return () => {
@@ -447,51 +456,51 @@ const AbodeMainLandingPage = () => {
                     <div className='ssssss'>
                         <div class="grid-container">
                             <div class="grid-item grid_1">
-                                <div><img className='gridd_hai_guys' src={img1} /></div>
+                                <div><img className='gridd_hai_guys' src={jogging} /></div>
                                 <div className='amen_head'>Jogging Track</div>
                             </div>
                             <div class="grid-item grid_2">
-                                <div><img className='gridd_hai_guys' src={img2} /></div>
+                                <div><img className='gridd_hai_guys' src={swimming} /></div>
                                 <div className='amen_head'>Swimming Pool</div>
                             </div>
                             <div class="grid-item grid_3">
-                                <div><img className='gridd_hai_guys' src={img3} /></div>
+                                <div><img className='gridd_hai_guys' src={camera} /></div>
                                 <div className='amen_head'>24x7 Security</div>
                             </div>
                             <div class="grid-item grid_4" >
-                                <div><img className='gridd_hai_guys' src={img4} /></div>
+                                <div><img className='gridd_hai_guys' src={gym} /></div>
                                 <div className='amen_head'>Gymnasium</div>
                             </div>
                             <div class="grid-item grid_5" >
-                                <div><img className='gridd_hai_guys' src={img5} /></div>
+                                <div><img className='gridd_hai_guys' src={water} /></div>
                                 <div className='amen_head'>Water Softener Plant </div>
                             </div>
                             <div class="grid-item grid_6" >
-                                <div><img className='gridd_hai_guys' src={img6} /></div>
+                                <div><img className='gridd_hai_guys' src={yoga} /></div>
                                 <div className='amen_head'>Yoga/Meditation Area</div>
                             </div>
                             <div class="grid-item grid_7">
-                                <div><img className='gridd_hai_guys' src={img7} /></div>
+                                <div><img className='gridd_hai_guys' src={seniorCitizen} /></div>
                                 <div className='amen_head'>Senior Citizen Site Out</div>
                             </div>
                             <div class="grid-item grid_8">
-                                <div><img className='gridd_hai_guys' src={img8} /></div>
+                                <div><img className='gridd_hai_guys' src={tennis} /></div>
                                 <div className='amen_head'>Lawn Tennis Court</div>
                             </div>
                             <div class="grid-item grid_9">
-                                <div><img className='gridd_hai_guys' src={img9} /></div>
+                                <div><img className='gridd_hai_guys' src={partylawn} /></div>
                                 <div className='amen_head'>Party Lawn</div>
                             </div>
                             <div class="grid-item grid_10">
-                                <div><img className='gridd_hai_guys' src={img10} /></div>
+                                <div><img className='gridd_hai_guys' src={clubhouse} /></div>
                                 <div className='amen_head'>Club House</div>
                             </div>
                             <div class="grid-item grid_11" >
-                                <div><img className='gridd_hai_guys' src={img11} /></div>
+                                <div><img className='gridd_hai_guys' src={playgroung} /></div>
                                 <div className='amen_head'>Children’s Play Area</div>
                             </div>
                             <div class="grid-item grid_12" >
-                                <div><img className='gridd_hai_guys' src={img12} /></div>
+                                <div><img className='gridd_hai_guys' src={sprinkler} /></div>
                                 <div className='amen_head'>Fire Fighting System</div>
                             </div>
                         </div>
@@ -1082,10 +1091,16 @@ const AbodeMainLandingPage = () => {
                                 alignItems: "center"
                             }}>
                                 <div><input className='formRow' placeholder='Name' value={name} onChange={(e) => setName(e.target.value)} /></div>
-                                <div><input className='formRow' placeholder='Phone'  value={phone}   maxLength={10}
-                              onChange={(e) => {  handlePhoneChange(e); }} 
-                              /></div>
-                                <div><input className='formRow' placeholder='Email' value={email}  onChange={handleEmailChange} /></div>
+                                <div><input className='formRow' placeholder='Phone' value={phone} onChange={(e) => {  handlePhoneChange(e); }}  /></div>
+                                <div>  <input
+                            className='formRow'
+                            placeholder='Email'
+                            value={email}
+                            onChange={handleEmailChange}
+                        /></div>
+                         {/* {!isValidEmail && (
+                            <p style={{ color: 'red' }}>Please enter a valid email address</p>
+                        )} */}
                             </div>
                             <div className='submit_btn' onClick={handleDownload}>Submit</div>
                         </div>
@@ -1110,4 +1125,4 @@ const AbodeMainLandingPage = () => {
     )
 }
 
-export default AbodeMainLandingPage     
+export default AbodeMainLandingPage 
